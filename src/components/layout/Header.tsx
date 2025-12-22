@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import companyLogo from "../../../public/PSC_logo.jpeg";
 
 const navItems = [
   { name: "Home", path: "/" },
@@ -24,8 +25,10 @@ export function Header() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full gradient-teal flex items-center justify-center">
-              <span className="text-primary-foreground font-display font-bold text-lg">P</span>
+            <div >
+
+              <img className="w-10 h-10 rounded-full gradient-teal flex items-center justify-center border-primary border-2" src={companyLogo} alt="" />
+
             </div>
             <span className="font-display font-semibold text-xl text-foreground">
               Princy Shah Consultancy

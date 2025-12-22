@@ -1,5 +1,6 @@
 import { Linkedin, Mail, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
+import companyLogo from "../../../public/PSC_logo.jpeg";
 
 export function Footer() {
   return (
@@ -10,7 +11,9 @@ export function Footer() {
           <div className="space-y-4">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-primary-foreground/20 flex items-center justify-center">
-                <span className="font-display font-bold text-lg">P</span>
+                <span>
+                  <img src={companyLogo} alt=""/>
+                </span>
               </div>
               <span className="font-display font-semibold text-xl">
                 Princy Shah Consultancy
