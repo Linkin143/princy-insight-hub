@@ -1,8 +1,8 @@
-import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { Menu, X } from "lucide-react";
+import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 const navItems = [
   { name: "Home", path: "/" },
@@ -28,7 +28,7 @@ export function Header() {
               <span className="text-primary-foreground font-display font-bold text-lg">P</span>
             </div>
             <span className="font-display font-semibold text-xl text-foreground">
-              Princy Shah
+              Princy Shah Consultancy
             </span>
           </Link>
 

@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Compass, LineChart, Users, Briefcase } from "lucide-react";
+import { ArrowRight, Briefcase, Compass, LineChart, Users } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const services = [
   {
@@ -38,7 +38,7 @@ export function ServicesPreview() {
             Comprehensive Consulting Solutions
           </h2>
           <p className="text-muted-foreground text-lg">
-            We offer tailored advisory services designed to address your unique business challenges and unlock new opportunities.
+            Services specially structured to suit the style and stage of your business, combining clarity, research, and disciplined thinking to add value beyond documentation.
           </p>
         </div>
 

@@ -1,5 +1,5 @@
+import { Linkedin, Mail, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Phone, Mail, Linkedin } from "lucide-react";
 
 export function Footer() {
   return (
@@ -13,7 +13,7 @@ export function Footer() {
                 <span className="font-display font-bold text-lg">P</span>
               </div>
               <span className="font-display font-semibold text-xl">
-                Princy Shah
+                Princy Shah Consultancy
               </span>
             </div>
             <p className="text-primary-foreground/70 text-sm leading-relaxed">
