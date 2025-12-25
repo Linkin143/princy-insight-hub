@@ -1,6 +1,6 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { Phone, Mail, Linkedin, Target, Eye, Heart } from "lucide-react";
+import { Phone, Mail, Linkedin, Target, Eye, Heart, Sparkles, Zap, Users, Clock, Award } from "lucide-react";
 
 export default function About() {
   return (
@@ -14,12 +14,52 @@ export default function About() {
               About Us
             </span>
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground mb-6">
-              Building Futures Through Strategic Vision
+              Innovating Futures Through Strategic Vision
             </h1>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
               Princy Shah Consulting is a founder-led strategic advisory firm dedicated 
-              to helping businesses navigate complexity and achieve transformative growth.
+              to helping businesses navigate complexity and achieve innovative growth.
             </p>
+          </div>
+        </section>
+
+        {/* Founder Section */}
+        <section className="container mx-auto px-6 mb-20">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+              <div className="order-2 lg:order-1">
+                <span className="text-primary font-medium text-sm tracking-wider uppercase mb-4 block">
+                  The Face Behind the Consultancy
+                </span>
+                <h2 className="font-display text-3xl md:text-4xl font-semibold text-foreground mb-4">
+                  Princy Shah
+                </h2>
+                <p className="text-primary font-medium mb-6">Founder & Principal Consultant</p>
+                <p className="text-muted-foreground text-lg mb-6 leading-relaxed">
+                  With years of experience in strategic advisory and business consulting, 
+                  I founded Princy Shah Consulting to bring clarity and innovation to 
+                  businesses seeking meaningful growth. My approach combines deep analytical 
+                  thinking with a vision-led methodology that transforms challenges into opportunities.
+                </p>
+                <p className="text-muted-foreground text-lg leading-relaxed">
+                  I believe in building lasting partnerships with my clients, understanding 
+                  their unique needs, and delivering solutions that create real, measurable impact.
+                </p>
+              </div>
+              <div className="order-1 lg:order-2 flex justify-center">
+                <div className="relative">
+                  <div className="w-64 h-64 md:w-80 md:h-80 rounded-3xl bg-secondary/50 border border-border overflow-hidden">
+                    {/* Placeholder for founder image */}
+                    <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary/10 to-primary/5">
+                      <span className="text-muted-foreground text-sm">Your Photo Here</span>
+                    </div>
+                  </div>
+                  <div className="absolute -bottom-4 -right-4 w-24 h-24 rounded-2xl bg-primary flex items-center justify-center">
+                    <span className="text-primary-foreground font-display font-bold text-2xl">PS</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -34,7 +74,7 @@ export default function About() {
                 <p className="text-muted-foreground text-lg mb-6 leading-relaxed">
                   We believe that true consulting goes beyond delivering reports—it's about 
                   becoming a trusted partner invested in your success. Every engagement 
-                  is approached with the rigor of analysis and the creativity of vision.
+                  is approached with research-led analysis and insightful vision.
                 </p>
                 <p className="text-muted-foreground text-lg leading-relaxed">
                   Our founder-led approach ensures that senior expertise is directly 
@@ -45,42 +85,81 @@ export default function About() {
               <div className="bg-secondary/50 rounded-3xl p-8">
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-teal-light flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
                       <Target className="w-5 h-5 text-primary" />
                     </div>
                     <div>
                       <h3 className="font-semibold text-foreground mb-2">Vision</h3>
                       <p className="text-muted-foreground text-sm">
-                        To be the trusted partner that enables businesses to realize 
-                        their full potential through strategic clarity and execution excellence.
+                        Elevating the future with innovators through vision-led insight.
                       </p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-teal-light flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
                       <Eye className="w-5 h-5 text-primary" />
                     </div>
                     <div>
                       <h3 className="font-semibold text-foreground mb-2">Mission</h3>
                       <p className="text-muted-foreground text-sm">
-                        Delivering actionable insights and strategic frameworks that 
-                        drive measurable results and sustainable competitive advantage.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-teal-light flex items-center justify-center flex-shrink-0">
-                      <Heart className="w-5 h-5 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-foreground mb-2">Values</h3>
-                      <p className="text-muted-foreground text-sm">
-                        Integrity, Excellence, Partnership, Innovation, and Results-Orientation 
-                        guide everything we do.
+                        Your business, my detailing — turning raw ideas into sharp systems that work.
                       </p>
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Values */}
+        <section className="container mx-auto px-6 mb-20">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="font-display text-3xl md:text-4xl font-semibold text-foreground mb-8 text-center">
+              Our Values
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="bg-secondary/30 rounded-2xl p-6 border border-border">
+                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                  <Eye className="w-5 h-5 text-primary" />
+                </div>
+                <h3 className="font-semibold text-foreground mb-2">Vision with Structure</h3>
+                <p className="text-muted-foreground text-sm">Big ideas grounded in practical frameworks.</p>
+              </div>
+              <div className="bg-secondary/30 rounded-2xl p-6 border border-border">
+                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                  <Sparkles className="w-5 h-5 text-primary" />
+                </div>
+                <h3 className="font-semibold text-foreground mb-2">Innovation with Sense</h3>
+                <p className="text-muted-foreground text-sm">Creative solutions that make business sense.</p>
+              </div>
+              <div className="bg-secondary/30 rounded-2xl p-6 border border-border">
+                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                  <Target className="w-5 h-5 text-primary" />
+                </div>
+                <h3 className="font-semibold text-foreground mb-2">Clarity in All Things</h3>
+                <p className="text-muted-foreground text-sm">Clear communication and transparent processes.</p>
+              </div>
+              <div className="bg-secondary/30 rounded-2xl p-6 border border-border">
+                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                  <Zap className="w-5 h-5 text-primary" />
+                </div>
+                <h3 className="font-semibold text-foreground mb-2">Speed with Discipline</h3>
+                <p className="text-muted-foreground text-sm">Fast execution without compromising quality.</p>
+              </div>
+              <div className="bg-secondary/30 rounded-2xl p-6 border border-border">
+                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                  <Users className="w-5 h-5 text-primary" />
+                </div>
+                <h3 className="font-semibold text-foreground mb-2">Partnership with Purpose</h3>
+                <p className="text-muted-foreground text-sm">Meaningful collaborations that drive results.</p>
+              </div>
+              <div className="bg-secondary/30 rounded-2xl p-6 border border-border">
+                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                  <Award className="w-5 h-5 text-primary" />
+                </div>
+                <h3 className="font-semibold text-foreground mb-2">Impact that Lasts</h3>
+                <p className="text-muted-foreground text-sm">Sustainable solutions for long-term success.</p>
               </div>
             </div>
           </div>
