@@ -2,20 +2,28 @@ import { CheckCircle2 } from "lucide-react";
 
 const reasons = [
   {
-    title: "Founder-Led Expertise",
-    description: "Direct access to senior-level strategic thinking and personalized attention on every engagement.",
+    title: "Time-Cost-Quality Benefit",
+    description: "Optimal balance of speed, affordability, and excellence in every deliverable.",
   },
   {
-    title: "Results-Driven Approach",
-    description: "We measure success by your outcomes, not just deliverables. Every recommendation is actionable.",
+    title: "Fast Turnaround",
+    description: "Quick delivery without compromising on quality or attention to detail.",
   },
   {
-    title: "Industry Agnostic",
-    description: "Cross-sector experience brings fresh perspectives and proven frameworks to your unique challenges.",
+    title: "Customised, Not Template-Based",
+    description: "Every solution is fitted to your unique needs—no generic approaches.",
   },
   {
-    title: "Long-Term Partnership",
-    description: "We build lasting relationships focused on your sustained growth and continued success.",
+    title: "Insight Driven Work",
+    description: "Research-led analysis that uncovers opportunities and drives informed decisions.",
+  },
+  {
+    title: "International Standards",
+    description: "Work quality fit for global markets and international investors.",
+  },
+  {
+    title: "Structure & Strategy",
+    description: "Structure to facts and strategy to ideas—turning complexity into clarity.",
   },
 ];
 

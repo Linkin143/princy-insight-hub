@@ -1,27 +1,32 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Briefcase, Compass, LineChart, Users } from "lucide-react";
+import { ArrowRight, Presentation, Building2, LineChart, MessageSquare, Monitor } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const services = [
   {
-    icon: Compass,
-    title: "Strategic Advisory",
-    description: "Navigate complex business landscapes with expert guidance and actionable insights.",
+    icon: Presentation,
+    title: "Pitch Decks",
+    description: "Compelling presentations that tell your story and win investor confidence.",
+  },
+  {
+    icon: Building2,
+    title: "Business Model",
+    description: "Robust frameworks that turn your vision into a sustainable, scalable operation.",
   },
   {
     icon: LineChart,
-    title: "Business Consulting",
-    description: "Transform operations and processes to drive efficiency and sustainable growth.",
+    title: "Financial Forecasts",
+    description: "Data-driven projections that guide decisions and attract investment.",
   },
   {
-    icon: Users,
-    title: "Leadership Development",
-    description: "Build high-performing teams and cultivate leadership excellence across your organization.",
+    icon: MessageSquare,
+    title: "Advisory Support",
+    description: "Strategic guidance fitted to your unique challenges and growth ambitions.",
   },
   {
-    icon: Briefcase,
-    title: "Market Analysis",
-    description: "Gain competitive advantage through deep market intelligence and trend analysis.",
+    icon: Monitor,
+    title: "Tech Support",
+    description: "Technology solutions aligned with your business needs and market demands.",
   },
 ];
 
