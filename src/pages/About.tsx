@@ -1,7 +1,7 @@
-import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { Phone, Mail, Linkedin, Target, Eye, Heart, Sparkles, Zap, Users, Clock, Award } from "lucide-react";
-
+import { Header } from "@/components/layout/Header";
+import { Award, Eye, Linkedin, Mail, Phone, Sparkles, Target, Users, Zap } from "lucide-react";
+import FounderProfile from "../../attachments/Profile Photo/Founder_Pic.jpeg";
 export default function About() {
   return (
     <div className="min-h-screen">
@@ -51,7 +51,7 @@ export default function About() {
                   <div className="w-64 h-64 md:w-80 md:h-80 rounded-3xl bg-secondary/50 border border-border overflow-hidden">
                     {/* Placeholder for founder image */}
                     <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary/10 to-primary/5">
-                      <span className="text-muted-foreground text-sm">Your Photo Here</span>
+                      <span className="text-muted-foreground text-sm"><img src={FounderProfile} alt="" /></span>
                     </div>
                   </div>
                   <div className="absolute -bottom-4 -right-4 w-24 h-24 rounded-2xl bg-primary flex items-center justify-center">
@@ -181,14 +181,14 @@ export default function About() {
                   <span className="text-primary-foreground">928-426-1593</span>
                 </a>
                 <a 
-                  href="mailto:contact@princyshah.com" 
+                  href="mailto:princyshahconsulting@gmail.com" 
                   className="flex items-center gap-4 p-4 rounded-xl bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors"
                 >
                   <Mail className="w-5 h-5 text-primary-foreground" />
                   <span className="text-primary-foreground">Email Us</span>
                 </a>
                 <a 
-                  href="#" 
+                  href="https://www.linkedin.com/in/princy-shah-071882176/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" 
                   className="flex items-center gap-4 p-4 rounded-xl bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors"
                 >
                   <Linkedin className="w-5 h-5 text-primary-foreground" />

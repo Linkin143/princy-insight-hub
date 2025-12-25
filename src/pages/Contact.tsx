@@ -1,9 +1,9 @@
-import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { Header } from "@/components/layout/Header";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Phone, Mail, Linkedin, MapPin } from "lucide-react";
+import { Linkedin, Mail, Phone } from "lucide-react";
 import { toast } from "sonner";
 
 export default function Contact() {
@@ -112,7 +112,7 @@ export default function Contact() {
                   </a>
 
                   <a 
-                    href="mailto:contact@princyshah.com" 
+                    href="mailto:princyshahconsulting@gmail.com" 
                     className="flex items-start gap-4 p-4 rounded-xl bg-secondary hover:bg-secondary/80 transition-colors"
                   >
                     <div className="w-12 h-12 rounded-xl bg-teal-light flex items-center justify-center flex-shrink-0">
@@ -120,12 +120,12 @@ export default function Contact() {
                     </div>
                     <div>
                       <p className="font-semibold text-foreground">Email</p>
-                      <p className="text-muted-foreground">contact@princyshah.com</p>
+                      <p className="text-muted-foreground">princyshahconsulting@gmail.com</p>
                     </div>
                   </a>
 
                   <a 
-                    href="#" 
+                    href="https://www.linkedin.com/in/princy-shah-071882176/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" 
                     className="flex items-start gap-4 p-4 rounded-xl bg-secondary hover:bg-secondary/80 transition-colors"
                   >
                     <div className="w-12 h-12 rounded-xl bg-teal-light flex items-center justify-center flex-shrink-0">

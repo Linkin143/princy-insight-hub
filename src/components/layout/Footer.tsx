@@ -65,13 +65,13 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={16} className="text-primary-foreground/70" />
-                <a href="mailto:contact@princyshah.com" className="text-primary-foreground/70 hover:text-primary-foreground transition-colors text-sm">
-                  contact@princyshah.com
+                <a href="mailto:princyshahconsulting@gmail.com" className="text-primary-foreground/70 hover:text-primary-foreground transition-colors text-sm">
+                  princyshahconsulting@gmail.com
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <Linkedin size={16} className="text-primary-foreground/70" />
-                <a href="#" className="text-primary-foreground/70 hover:text-primary-foreground transition-colors text-sm">
+                <a href="https://www.linkedin.com/in/princy-shah-071882176/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" className="text-primary-foreground/70 hover:text-primary-foreground transition-colors text-sm">
                   LinkedIn
                 </a>
               </li>
