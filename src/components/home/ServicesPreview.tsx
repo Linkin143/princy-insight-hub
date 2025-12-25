@@ -1,32 +1,69 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Presentation, Building2, LineChart, MessageSquare, Monitor } from "lucide-react";
+import { 
+  ArrowRight, 
+  Presentation, 
+  Layers, 
+  LayoutDashboard, 
+  FileText, 
+  Lightbulb, 
+  PenTool, 
+  FolderCheck, 
+  Search, 
+  Palette, 
+  Cpu 
+} from "lucide-react";
 import { Link } from "react-router-dom";
 
 const services = [
   {
     icon: Presentation,
     title: "Pitch Decks",
-    description: "Compelling presentations that tell your story and win investor confidence.",
+    description: "Investor-focused pitch decks with structured storytelling and clear logic.",
   },
   {
-    icon: Building2,
-    title: "Business Model",
-    description: "Robust frameworks that turn your vision into a sustainable, scalable operation.",
+    icon: Layers,
+    title: "Business Models",
+    description: "Models that explain viability, sustainability, and scale.",
   },
   {
-    icon: LineChart,
-    title: "Financial Forecasts",
-    description: "Data-driven projections that guide decisions and attract investment.",
+    icon: LayoutDashboard,
+    title: "MIS & Dashboards",
+    description: "Decision-ready dashboards designed for founders and management.",
   },
   {
-    icon: MessageSquare,
-    title: "Advisory Support",
-    description: "Strategic guidance fitted to your unique challenges and growth ambitions.",
+    icon: FileText,
+    title: "SOP Documentation",
+    description: "Process documentation for order, clarity, and operational discipline.",
   },
   {
-    icon: Monitor,
-    title: "Tech Support",
-    description: "Technology solutions aligned with your business needs and market demands.",
+    icon: Lightbulb,
+    title: "Strategic Advisory",
+    description: "Structured thinking support for informed decision-making.",
+  },
+  {
+    icon: PenTool,
+    title: "Content & Communication",
+    description: "Clear content aligned with business intent and positioning.",
+  },
+  {
+    icon: FolderCheck,
+    title: "Documentation & Governance",
+    description: "Supporting documents for internal structure and control.",
+  },
+  {
+    icon: Search,
+    title: "Research & Analysis",
+    description: "Research-backed inputs for clarity and strategic direction.",
+  },
+  {
+    icon: Palette,
+    title: "Visual Support",
+    description: "Refinement and structuring of existing business material.",
+  },
+  {
+    icon: Cpu,
+    title: "Tech / AI Support",
+    description: "Technology support aligned with business systems and workflows.",
   },
 ];
 
@@ -48,28 +85,22 @@ export function ServicesPreview() {
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto mb-12">
           {services.map((service, index) => (
             <div
               key={service.title}
-              className="group p-8 rounded-2xl bg-card border border-border hover:border-primary/30 hover:shadow-card transition-all duration-300"
-              style={{ animationDelay: `${index * 100}ms` }}
+              className="group p-6 rounded-2xl bg-card border border-border hover:border-primary/30 hover:shadow-card transition-all duration-300"
+              style={{ animationDelay: `${index * 50}ms` }}
             >
-              <div className="w-14 h-14 rounded-xl bg-teal-light flex items-center justify-center mb-6 group-hover:bg-primary transition-colors duration-300">
-                <service.icon className="w-6 h-6 text-primary group-hover:text-primary-foreground transition-colors duration-300" />
+              <div className="w-12 h-12 rounded-xl bg-teal-light flex items-center justify-center mb-4 group-hover:bg-primary transition-colors duration-300">
+                <service.icon className="w-5 h-5 text-primary group-hover:text-primary-foreground transition-colors duration-300" />
               </div>
-              <h3 className="font-display text-xl font-semibold text-foreground mb-3">
+              <h3 className="font-display text-lg font-semibold text-foreground mb-2">
                 {service.title}
               </h3>
-              <p className="text-muted-foreground leading-relaxed">
+              <p className="text-muted-foreground text-sm leading-relaxed">
                 {service.description}
               </p>
-              <Link 
-                to="/services" 
-                className="inline-flex items-center gap-2 text-primary font-medium mt-4 group-hover:gap-3 transition-all"
-              >
-                Learn More <ArrowRight className="w-4 h-4" />
-              </Link>
             </div>
           ))}
         </div>
@@ -77,7 +108,9 @@ export function ServicesPreview() {
         {/* CTA */}
         <div className="text-center">
           <Button variant="hero" size="lg" asChild>
-            <Link to="/services">View All Services</Link>
+            <Link to="/services">
+              View All Services <ArrowRight className="ml-2 w-4 h-4" />
+            </Link>
           </Button>
         </div>
       </div>
