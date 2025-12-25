@@ -2,60 +2,208 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Presentation, Layers, TrendingUp, HeadphonesIcon, Cpu, ArrowRight } from "lucide-react";
+import { 
+  Presentation, 
+  Layers, 
+  LayoutDashboard, 
+  FileText, 
+  Lightbulb, 
+  PenTool, 
+  FolderCheck, 
+  Search, 
+  Palette, 
+  Cpu, 
+  ArrowRight,
+  ChevronDown
+} from "lucide-react";
+import { useState } from "react";
+import { cn } from "@/lib/utils";
 
 const services = [
   {
     icon: Presentation,
     title: "Pitch Decks",
-    description: "Compelling presentations that communicate your vision and win investor confidence.",
-    elements: [
-      { name: "Investor Pitch Decks", desc: "Professionally crafted decks designed to secure funding and partnerships." },
-      { name: "Sales Presentations", desc: "Persuasive materials that convert prospects into clients." },
-      { name: "Corporate Presentations", desc: "Polished decks for board meetings, conferences, and stakeholder communications." },
+    description: "Investor-focused pitch decks built with structured storytelling, clear logic, and professional presentation.",
+    details: [
+      "Slide structure & problem–solution framing",
+      "Market overview & TAM–SAM–SOM",
+      "Product/service overview & target segments",
+      "Value proposition & go-to-market plan",
+      "Traction, revenue model & cost logic",
+      "Financial summary & use of funds",
+      "Roadmap, ask slide & pitch scripts",
+      "Investor one-pagers"
     ],
   },
   {
     icon: Layers,
-    title: "Business Model",
-    description: "Strategic frameworks that define how your business creates, delivers, and captures value.",
-    elements: [
-      { name: "Business Model Canvas", desc: "Comprehensive mapping of your value proposition, channels, and revenue streams." },
-      { name: "Revenue Model Design", desc: "Innovative approaches to monetization fitted to your market." },
-      { name: "Scalability Planning", desc: "Strategies for sustainable growth and market expansion." },
+    title: "Business Models",
+    description: "Structured business and financial models that explain viability, sustainability, and scale.",
+    details: [
+      "Business model logic & customer segments",
+      "Revenue and cost models",
+      "Unit-level costing & pricing strategy",
+      "Profit and loss & cashflow",
+      "Break-even analysis & assumptions sheets",
+      "GTM logic & roadmap",
+      "Summary insights"
     ],
   },
   {
-    icon: TrendingUp,
-    title: "Financial Forecasts",
-    description: "Data-driven projections that guide strategic decisions and attract investment.",
-    elements: [
-      { name: "Revenue Projections", desc: "Realistic forecasts based on market analysis and growth assumptions." },
-      { name: "Financial Modelling", desc: "Comprehensive models for scenario planning and decision-making." },
-      { name: "Investment Analysis", desc: "ROI calculations and investment readiness assessments." },
+    icon: LayoutDashboard,
+    title: "MIS & Dashboards",
+    description: "Clear, decision-ready MIS and dashboards designed for founders and management.",
+    details: [
+      "Monthly MIS packs",
+      "Revenue and expense summaries",
+      "KPI dashboards",
+      "Cashflow snapshots",
+      "Year-to-date performance",
+      "Basic variance analysis",
+      "Visual charts"
     ],
   },
   {
-    icon: HeadphonesIcon,
-    title: "Advisory Support",
-    description: "Expert guidance to navigate complex business challenges and opportunities.",
-    elements: [
-      { name: "Strategic Advisory", desc: "Ongoing counsel for critical business decisions and market positioning." },
-      { name: "Business Development", desc: "Support for partnerships, market entry, and growth initiatives." },
-      { name: "Operational Guidance", desc: "Practical advice on process optimization and efficiency improvements." },
+    icon: FileText,
+    title: "SOP Documentation",
+    description: "Process documentation designed to bring order, clarity, and operational discipline.",
+    details: [
+      "Purpose, scope & definitions",
+      "Roles and responsibilities",
+      "Process descriptions & step-by-step workflows",
+      "Activity flowcharts",
+      "Controls, checks & exception handling",
+      "Templates & RACI matrices",
+      "Review schedules"
+    ],
+  },
+  {
+    icon: Lightbulb,
+    title: "Business & Strategic Advisory",
+    description: "Structured thinking support for direction-setting and informed decision-making.",
+    details: [
+      "Idea review & concept polishing",
+      "Service structuring & pricing logic",
+      "Market direction inputs",
+      "Business plan & financial logic inputs",
+      "Strategy notes & founder discussions",
+      "Management decision support",
+      "Integrated business planning"
+    ],
+  },
+  {
+    icon: PenTool,
+    title: "Business Content & Communication",
+    description: "Clear and structured content aligned with business intent and positioning.",
+    details: [
+      "Company profiles & executive summaries",
+      "Vision–mission–values drafting",
+      "Product and service descriptions",
+      "Website content & pitch scripts",
+      "Founder notes & email templates",
+      "Social media bios",
+      "Marketing plan writing"
+    ],
+  },
+  {
+    icon: FolderCheck,
+    title: "Business Documentation & Governance",
+    description: "Supporting documents for internal structure and control.",
+    details: [
+      "RCM creation",
+      "SOP light documentation",
+      "Policy notes & business process notes",
+      "Assumption sheets & pricing sheets",
+      "Basic internal audit assistance"
+    ],
+  },
+  {
+    icon: Search,
+    title: "Research, Analysis & Strategic Inputs",
+    description: "Research-backed inputs to support clarity and strategic direction.",
+    details: [
+      "Market overview notes",
+      "Competitive landscape summaries",
+      "SWOT analysis & competitive mapping",
+      "Feasibility notes",
+      "Problem–solution mapping",
+      "GTM suggestions & business improvement notes",
+      "Strategic planning inputs"
+    ],
+  },
+  {
+    icon: Palette,
+    title: "Presentation & Visual Support",
+    description: "Refinement and structuring of existing business material.",
+    details: [
+      "Pitch deck formatting",
+      "Visual summary pages",
+      "Clean pastel layouts",
+      "Internal document formatting",
+      "Document cleanup and polishing"
     ],
   },
   {
     icon: Cpu,
-    title: "Tech Support",
-    description: "Technical expertise to power your digital transformation and innovation.",
-    elements: [
-      { name: "Technology Strategy", desc: "Roadmaps for digital transformation and technology adoption." },
-      { name: "Platform Selection", desc: "Guidance on tools and platforms fitted to your business needs." },
-      { name: "Implementation Support", desc: "Technical assistance for seamless deployment and integration." },
+    title: "Tech / AI Related Support",
+    description: "Technology support aligned with business systems and workflows.",
+    details: [
+      "AI and advanced tech solutions",
+      "Automation and workflow solutions",
+      "Dashboards and internal tools",
+      "Web and application development",
+      "Testing and quality assurance",
+      "Technical operations support"
     ],
   },
 ];
+
+function ServiceCard({ service }: { service: typeof services[0] }) {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  return (
+    <div className="bg-card border border-border rounded-2xl p-6 hover:shadow-card hover:border-primary/20 transition-all duration-300">
+      <div className="flex items-start gap-4 mb-4">
+        <div className="w-12 h-12 rounded-xl bg-teal-light flex items-center justify-center flex-shrink-0">
+          <service.icon className="w-5 h-5 text-primary" />
+        </div>
+        <div className="flex-1">
+          <h3 className="font-display text-lg font-semibold text-foreground mb-2">
+            {service.title}
+          </h3>
+          <p className="text-muted-foreground text-sm leading-relaxed">
+            {service.description}
+          </p>
+        </div>
+      </div>
+      
+      <button
+        onClick={() => setIsExpanded(!isExpanded)}
+        className="flex items-center gap-2 text-primary text-sm font-medium hover:gap-3 transition-all mt-2"
+      >
+        View details
+        <ChevronDown className={cn(
+          "w-4 h-4 transition-transform duration-200",
+          isExpanded && "rotate-180"
+        )} />
+      </button>
+      
+      <div className={cn(
+        "overflow-hidden transition-all duration-300",
+        isExpanded ? "max-h-96 mt-4 pt-4 border-t border-border" : "max-h-0"
+      )}>
+        <ul className="space-y-2">
+          {service.details.map((detail, index) => (
+            <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+              {detail}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+}
 
 export default function Services() {
   return (
@@ -63,7 +211,7 @@ export default function Services() {
       <Header />
       <main className="pt-32 pb-24">
         {/* Hero */}
-        <section className="container mx-auto px-6 mb-20">
+        <section className="container mx-auto px-6 mb-16">
           <div className="max-w-4xl mx-auto text-center">
             <span className="text-primary font-medium text-sm tracking-wider uppercase mb-4 block">
               Our Services
@@ -78,51 +226,14 @@ export default function Services() {
           </div>
         </section>
 
-        {/* Services */}
+        {/* Services Grid */}
         <section className="container mx-auto px-6">
-          <div className="max-w-6xl mx-auto space-y-12">
-            {services.map((service) => (
-              <div 
-                key={service.title}
-                className="bg-card border border-border rounded-3xl p-8 md:p-10 hover:shadow-card transition-shadow"
-              >
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                  {/* Service Header */}
-                  <div className="lg:col-span-1">
-                    <div className="w-14 h-14 rounded-xl bg-teal-light flex items-center justify-center mb-6">
-                      <service.icon className="w-6 h-6 text-primary" />
-                    </div>
-                    <h2 className="font-display text-2xl font-semibold text-foreground mb-4">
-                      {service.title}
-                    </h2>
-                    <p className="text-muted-foreground leading-relaxed">
-                      {service.description}
-                    </p>
-                  </div>
-
-                  {/* Service Elements */}
-                  <div className="lg:col-span-2">
-                    <div className="space-y-6">
-                      {service.elements.map((element) => (
-                        <div key={element.name} className="flex gap-4">
-                          <div className="flex-shrink-0 mt-1.5">
-                            <div className="w-2 h-2 rounded-full bg-primary" />
-                          </div>
-                          <div>
-                            <h3 className="font-semibold text-foreground mb-1">
-                              {element.name}
-                            </h3>
-                            <p className="text-muted-foreground text-sm">
-                              {element.desc}
-                            </p>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {services.map((service) => (
+                <ServiceCard key={service.title} service={service} />
+              ))}
+            </div>
           </div>
 
           {/* CTA */}
