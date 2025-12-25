@@ -2,67 +2,57 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Compass, LineChart, Users, Briefcase, TrendingUp, Settings, ArrowRight } from "lucide-react";
+import { Presentation, Layers, TrendingUp, HeadphonesIcon, Cpu, ArrowRight } from "lucide-react";
 
 const services = [
   {
-    icon: Compass,
-    title: "Strategic Advisory",
-    description: "Navigate complex business landscapes with expert guidance and actionable insights that drive transformation.",
+    icon: Presentation,
+    title: "Pitch Decks",
+    description: "Compelling presentations that communicate your vision and win investor confidence.",
     elements: [
-      { name: "Corporate Strategy Development", desc: "Comprehensive strategic planning aligned with your vision and market dynamics." },
-      { name: "Business Model Innovation", desc: "Reimagine your value proposition and revenue streams for sustainable growth." },
-      { name: "Strategic Roadmapping", desc: "Clear, actionable plans with milestones to guide execution and measure progress." },
+      { name: "Investor Pitch Decks", desc: "Professionally crafted decks designed to secure funding and partnerships." },
+      { name: "Sales Presentations", desc: "Persuasive materials that convert prospects into clients." },
+      { name: "Corporate Presentations", desc: "Polished decks for board meetings, conferences, and stakeholder communications." },
     ],
   },
   {
-    icon: LineChart,
-    title: "Business Consulting",
-    description: "Transform operations and processes to drive efficiency, reduce costs, and achieve operational excellence.",
+    icon: Layers,
+    title: "Business Model",
+    description: "Strategic frameworks that define how your business creates, delivers, and captures value.",
     elements: [
-      { name: "Process Optimization", desc: "Streamline workflows and eliminate inefficiencies across your organization." },
-      { name: "Performance Management", desc: "Implement metrics and frameworks to track and improve business outcomes." },
-      { name: "Change Management", desc: "Guide successful transitions with stakeholder alignment and clear communication." },
-    ],
-  },
-  {
-    icon: Users,
-    title: "Leadership Development",
-    description: "Build high-performing teams and cultivate leadership excellence at every level of your organization.",
-    elements: [
-      { name: "Executive Coaching", desc: "One-on-one guidance for senior leaders to enhance their strategic capabilities." },
-      { name: "Team Effectiveness", desc: "Build cohesive teams that collaborate effectively and deliver results." },
-      { name: "Succession Planning", desc: "Develop future leaders and ensure organizational continuity." },
-    ],
-  },
-  {
-    icon: Briefcase,
-    title: "Market Analysis",
-    description: "Gain competitive advantage through deep market intelligence, trend analysis, and strategic positioning.",
-    elements: [
-      { name: "Competitive Intelligence", desc: "Understand your competitive landscape and identify strategic opportunities." },
-      { name: "Market Entry Strategy", desc: "Navigate new markets with confidence through thorough analysis and planning." },
-      { name: "Customer Insights", desc: "Deep understanding of customer needs and behaviors to drive growth." },
+      { name: "Business Model Canvas", desc: "Comprehensive mapping of your value proposition, channels, and revenue streams." },
+      { name: "Revenue Model Design", desc: "Innovative approaches to monetization fitted to your market." },
+      { name: "Scalability Planning", desc: "Strategies for sustainable growth and market expansion." },
     ],
   },
   {
     icon: TrendingUp,
-    title: "Growth Strategy",
-    description: "Accelerate business growth through innovative strategies and execution excellence.",
+    title: "Financial Forecasts",
+    description: "Data-driven projections that guide strategic decisions and attract investment.",
     elements: [
-      { name: "Revenue Optimization", desc: "Maximize revenue potential through pricing, mix, and channel strategies." },
-      { name: "Partnership Development", desc: "Identify and cultivate strategic partnerships for mutual growth." },
-      { name: "M&A Advisory", desc: "Strategic guidance on mergers, acquisitions, and integration planning." },
+      { name: "Revenue Projections", desc: "Realistic forecasts based on market analysis and growth assumptions." },
+      { name: "Financial Modelling", desc: "Comprehensive models for scenario planning and decision-making." },
+      { name: "Investment Analysis", desc: "ROI calculations and investment readiness assessments." },
     ],
   },
   {
-    icon: Settings,
-    title: "Operational Excellence",
-    description: "Optimize your operations for maximum efficiency, quality, and customer satisfaction.",
+    icon: HeadphonesIcon,
+    title: "Advisory Support",
+    description: "Expert guidance to navigate complex business challenges and opportunities.",
     elements: [
-      { name: "Supply Chain Optimization", desc: "Streamline supply chain operations for cost efficiency and resilience." },
-      { name: "Quality Management", desc: "Implement systems to ensure consistent quality and continuous improvement." },
-      { name: "Technology Integration", desc: "Leverage technology to enhance operational capabilities and insights." },
+      { name: "Strategic Advisory", desc: "Ongoing counsel for critical business decisions and market positioning." },
+      { name: "Business Development", desc: "Support for partnerships, market entry, and growth initiatives." },
+      { name: "Operational Guidance", desc: "Practical advice on process optimization and efficiency improvements." },
+    ],
+  },
+  {
+    icon: Cpu,
+    title: "Tech Support",
+    description: "Technical expertise to power your digital transformation and innovation.",
+    elements: [
+      { name: "Technology Strategy", desc: "Roadmaps for digital transformation and technology adoption." },
+      { name: "Platform Selection", desc: "Guidance on tools and platforms fitted to your business needs." },
+      { name: "Implementation Support", desc: "Technical assistance for seamless deployment and integration." },
     ],
   },
 ];
@@ -82,7 +72,7 @@ export default function Services() {
               Comprehensive Consulting Solutions
             </h1>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Tailored advisory services designed to address your unique business 
+              Fitted advisory services designed to address your unique business 
               challenges and unlock new opportunities for growth.
             </p>
           </div>
@@ -91,7 +81,7 @@ export default function Services() {
         {/* Services */}
         <section className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto space-y-12">
-            {services.map((service, index) => (
+            {services.map((service) => (
               <div 
                 key={service.title}
                 className="bg-card border border-border rounded-3xl p-8 md:p-10 hover:shadow-card transition-shadow"

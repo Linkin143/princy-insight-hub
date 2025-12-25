@@ -4,32 +4,39 @@ import { ArrowUpRight } from "lucide-react";
 
 const projects = [
   {
-    category: "Strategic Advisory",
-    title: "Market Expansion Strategy",
-    client: "Technology Services Company",
-    description: "Developed comprehensive market entry strategy for Southeast Asian expansion, resulting in 40% revenue growth within 18 months.",
-    results: ["40% revenue growth", "3 new markets", "Strategic partnerships"],
+    category: "Pitch Decks",
+    title: "Investor Pitch Development",
+    client: "Tech Startup",
+    description: "Created compelling investor pitch deck that clearly communicated the value proposition and market opportunity.",
+    results: ["Clear narrative", "Investor ready", "Professional design"],
   },
   {
-    category: "Business Consulting",
-    title: "Operational Transformation",
+    category: "Business Model",
+    title: "Revenue Model Redesign",
+    client: "E-commerce Company",
+    description: "Developed innovative business model framework with multiple revenue streams fitted to market dynamics.",
+    results: ["New revenue streams", "Scalable model", "Market fitted"],
+  },
+  {
+    category: "Financial Forecasts",
+    title: "Investment Readiness",
+    client: "Healthcare Startup",
+    description: "Built comprehensive financial models with realistic projections for investor presentations.",
+    results: ["5-year projections", "Scenario analysis", "Investor clarity"],
+  },
+  {
+    category: "Advisory Support",
+    title: "Strategic Growth Planning",
     client: "Manufacturing Enterprise",
-    description: "Led end-to-end operational transformation initiative, optimizing processes and implementing lean methodologies.",
-    results: ["30% cost reduction", "50% faster delivery", "Quality improvement"],
+    description: "Provided ongoing strategic advisory to guide market expansion and operational improvements.",
+    results: ["Market strategy", "Growth roadmap", "Clear direction"],
   },
   {
-    category: "Growth Strategy",
-    title: "Digital Transformation Roadmap",
-    client: "Financial Services Firm",
-    description: "Created digital transformation strategy and implementation roadmap, enabling new digital revenue streams.",
-    results: ["New digital products", "25% efficiency gains", "Enhanced CX"],
-  },
-  {
-    category: "Leadership Development",
-    title: "Executive Team Alignment",
-    client: "Healthcare Organization",
-    description: "Facilitated strategic alignment program for executive team, improving decision-making and organizational agility.",
-    results: ["Team alignment", "Faster decisions", "Cultural shift"],
+    category: "Tech Support",
+    title: "Digital Transformation",
+    client: "Retail Business",
+    description: "Guided technology selection and implementation strategy for digital transformation initiative.",
+    results: ["Tech roadmap", "Platform selection", "Seamless integration"],
   },
 ];
 
@@ -48,7 +55,7 @@ export default function SampleWork() {
               Our Impact in Action
             </h1>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Explore a selection of our client engagements and the transformative 
+              Explore a selection of our client engagements and the innovative 
               outcomes we've helped achieve.
             </p>
           </div>
@@ -58,7 +65,7 @@ export default function SampleWork() {
         <section className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {projects.map((project, index) => (
+              {projects.map((project) => (
                 <div 
                   key={project.title}
                   className="group bg-card border border-border rounded-3xl p-8 hover:shadow-card hover:border-primary/30 transition-all duration-300"
