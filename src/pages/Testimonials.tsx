@@ -1,39 +1,8 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { Quote } from "lucide-react";
-
-const testimonials = [
-  {
-    quote: "Princy Shah Consulting transformed our approach to strategic planning. Their insights were invaluable in helping us navigate a critical growth phase.",
-    author: "Sarah Mitchell",
-    title: "CEO, TechVentures Inc.",
-  },
-  {
-    quote: "The level of expertise and dedication we received exceeded our expectations. They truly became an extension of our leadership team.",
-    author: "Michael Chen",
-    title: "Managing Director, Atlas Partners",
-  },
-  {
-    quote: "Their data-driven approach combined with practical wisdom helped us achieve results we didn't think were possible in our timeline.",
-    author: "Emily Rodriguez",
-    title: "VP Strategy, Horizon Health",
-  },
-  {
-    quote: "Working with Princy Shah Consulting was a game-changer for our organization. Their strategic recommendations drove measurable improvements across all our key metrics.",
-    author: "David Thompson",
-    title: "President, Summit Industries",
-  },
-  {
-    quote: "The collaborative approach and depth of understanding they brought to our challenges made all the difference. Highly recommend.",
-    author: "Jennifer Walsh",
-    title: "Chief Operating Officer, NextGen Solutions",
-  },
-  {
-    quote: "From day one, they demonstrated a commitment to our success that went beyond typical consulting relationships. True partners in every sense.",
-    author: "Robert Kim",
-    title: "Founder, Apex Innovations",
-  },
-];
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { MessageSquare, ArrowRight } from "lucide-react";
 
 export default function Testimonials() {
   return (
@@ -50,35 +19,32 @@ export default function Testimonials() {
               What Our Clients Say
             </h1>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Hear from business leaders who have partnered with us to achieve 
-              transformative results.
+              We're building lasting relationships with our clients. 
+              Testimonials coming soon as we grow our portfolio.
             </p>
           </div>
         </section>
 
-        {/* Testimonials Grid */}
-        <section className="container mx-auto px-6">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {testimonials.map((testimonial, index) => (
-                <div 
-                  key={testimonial.author}
-                  className="bg-card border border-border rounded-3xl p-8 hover:shadow-card transition-shadow"
-                >
-                  <Quote className="w-10 h-10 text-teal-light mb-6" />
-                  <p className="text-foreground leading-relaxed mb-6">
-                    "{testimonial.quote}"
-                  </p>
-                  <div>
-                    <p className="font-semibold text-foreground">
-                      {testimonial.author}
-                    </p>
-                    <p className="text-muted-foreground text-sm">
-                      {testimonial.title}
-                    </p>
-                  </div>
-                </div>
-              ))}
+        {/* Empty State */}
+        <section className="container mx-auto px-6 mb-20">
+          <div className="max-w-2xl mx-auto">
+            <div className="bg-card border border-border rounded-3xl p-12 text-center">
+              <div className="w-20 h-20 rounded-full bg-teal-light flex items-center justify-center mx-auto mb-6">
+                <MessageSquare className="w-10 h-10 text-primary" />
+              </div>
+              <h2 className="font-display text-2xl font-semibold text-foreground mb-4">
+                Testimonials Coming Soon
+              </h2>
+              <p className="text-muted-foreground mb-8">
+                We're currently working with amazing clients. Their feedback and success stories 
+                will be shared here soon. In the meantime, feel free to reach out to learn more 
+                about how we can help your business.
+              </p>
+              <Button variant="hero" size="lg" asChild>
+                <Link to="/contact">
+                  Get in Touch <ArrowRight className="ml-2 w-4 h-4" />
+                </Link>
+              </Button>
             </div>
           </div>
         </section>
