@@ -2,6 +2,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { Award, Eye, Linkedin, Mail, Phone, Sparkles, Target, Users, Zap } from "lucide-react";
 import FounderProfile from "../../attachments/Profile Photo/Founder_Pic.jpeg";
+
 export default function About() {
   return (
     <div className="min-h-screen">
@@ -28,15 +29,11 @@ export default function About() {
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div className="order-2 lg:order-1">
-                <span className="text-primary font-medium text-sm tracking-wider uppercase mb-4 block">
-                  The Face Behind the Consultancy
-                </span>
-                <h2 className="font-display text-3xl md:text-4xl font-semibold text-foreground mb-4">
+                <h2 className="font-display text-3xl md:text-4xl font-semibold text-foreground mb-2">
                   Princy Shah
                 </h2>
-                <p className="text-primary font-medium mb-6">Founder & Principal Consultant</p>
+                <p className="text-primary font-medium mb-6">Founder</p>
                 <p className="text-muted-foreground text-lg mb-6 leading-relaxed">
-                  With years of experience in strategic advisory and business consulting, 
                   I founded Princy Shah Consulting to bring clarity and innovation to 
                   businesses seeking meaningful growth. My approach combines deep analytical 
                   thinking with a vision-led methodology that transforms challenges into opportunities.
@@ -48,15 +45,15 @@ export default function About() {
               </div>
               <div className="order-1 lg:order-2 flex justify-center">
                 <div className="relative">
-                  <div className="w-64 h-64 md:w-80 md:h-80 rounded-3xl bg-secondary/50 border border-border overflow-hidden">
-                    {/* Placeholder for founder image */}
-                    <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary/10 to-primary/5">
-                      <span className="text-muted-foreground text-sm"><img src={FounderProfile} alt="" /></span>
-                    </div>
+                  {/* Circular Photo Frame */}
+                  <div className="w-64 h-64 md:w-80 md:h-80 rounded-full bg-secondary/50 border-4 border-primary/20 overflow-hidden shadow-xl">
+                    <img 
+                      src={FounderProfile} 
+                      alt="Princy Shah - Founder" 
+                      className="w-full h-full object-cover"
+                    />
                   </div>
-                  <div className="absolute -bottom-4 -right-4 w-24 h-24 rounded-2xl bg-primary flex items-center justify-center">
-                    <span className="text-primary-foreground font-display font-bold text-2xl">PS</span>
-                  </div>
+                  <p className="text-center mt-4 text-primary font-medium">Founder</p>
                 </div>
               </div>
             </div>

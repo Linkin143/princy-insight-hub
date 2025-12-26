@@ -47,26 +47,26 @@ export default function Contact() {
                       <label className="block text-sm font-medium text-foreground mb-2">
                         First Name
                       </label>
-                      <Input placeholder="John" required />
+                      <Input placeholder="" required />
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-foreground mb-2">
                         Last Name
                       </label>
-                      <Input placeholder="Doe" required />
+                      <Input placeholder="" required />
                     </div>
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-2">
                       Email
                     </label>
-                    <Input type="email" placeholder="john@company.com" required />
+                    <Input type="email" placeholder="" required />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-2">
                       Company
                     </label>
-                    <Input placeholder="Your Company" />
+                    <Input placeholder="" />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-2">

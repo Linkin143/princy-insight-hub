@@ -10,13 +10,13 @@ export function Footer() {
           {/* Brand */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-primary-foreground/20 flex items-center justify-center">
-                <span>
-                  <img src={companyLogo} alt=""/>
-                </span>
-              </div>
-              <span className="font-display font-semibold text-xl">
-                Princy Shah Consultancy
+              <img 
+                className="w-10 h-10 rounded-full object-cover border-2 border-primary-foreground/30" 
+                src={companyLogo} 
+                alt="Princy Shah Consulting"
+              />
+              <span className="font-display font-bold text-xl">
+                Princy Shah Consulting
               </span>
             </div>
             <p className="text-primary-foreground/70 text-sm leading-relaxed">
@@ -45,7 +45,7 @@ export function Footer() {
           <div>
             <h4 className="font-display font-semibold text-lg mb-4">Services</h4>
             <ul className="space-y-3">
-              {["Strategic Advisory", "Business Consulting", "Growth Strategy", "Market Analysis"].map((item) => (
+              {["Business Models", "Financial Forecasts", "Pitch Decks", "Technology Support", "Advisory Support"].map((item) => (
                 <li key={item}>
                   <span className="text-primary-foreground/70 text-sm">{item}</span>
                 </li>
