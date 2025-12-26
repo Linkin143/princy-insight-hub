@@ -1,69 +1,39 @@
 import { Button } from "@/components/ui/button";
 import { 
   ArrowRight, 
-  Presentation, 
   Layers, 
-  LayoutDashboard, 
-  FileText, 
-  Lightbulb, 
-  PenTool, 
-  FolderCheck, 
-  Search, 
-  Palette, 
-  Cpu 
+  TrendingUp,
+  Presentation, 
+  Cpu, 
+  Users
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const services = [
   {
-    icon: Presentation,
-    title: "Pitch Decks",
-    description: "Investor-focused pitch decks with structured storytelling and clear logic.",
-  },
-  {
     icon: Layers,
     title: "Business Models",
-    description: "Models that explain viability, sustainability, and scale.",
+    description: "Comprehensive business model structuring and analysis to establish commercial clarity and strategic direction.",
   },
   {
-    icon: LayoutDashboard,
-    title: "MIS & Dashboards",
-    description: "Decision-ready dashboards designed for founders and management.",
+    icon: TrendingUp,
+    title: "Financial Forecasts",
+    description: "Structured financial forecasting and planning for disciplined cash management and performance tracking.",
   },
   {
-    icon: FileText,
-    title: "SOP Documentation",
-    description: "Process documentation for order, clarity, and operational discipline.",
-  },
-  {
-    icon: Lightbulb,
-    title: "Strategic Advisory",
-    description: "Structured thinking support for informed decision-making.",
-  },
-  {
-    icon: PenTool,
-    title: "Content & Communication",
-    description: "Clear content aligned with business intent and positioning.",
-  },
-  {
-    icon: FolderCheck,
-    title: "Documentation & Governance",
-    description: "Supporting documents for internal structure and control.",
-  },
-  {
-    icon: Search,
-    title: "Research & Analysis",
-    description: "Research-backed inputs for clarity and strategic direction.",
-  },
-  {
-    icon: Palette,
-    title: "Visual Support",
-    description: "Refinement and structuring of existing business material.",
+    icon: Presentation,
+    title: "Pitch Decks",
+    description: "Investor-grade pitch decks to position the business clearly and persuasively before investors and partners.",
   },
   {
     icon: Cpu,
-    title: "Tech / AI Support",
-    description: "Technology support aligned with business systems and workflows.",
+    title: "Technology Support",
+    description: "Technology and automation support for reliable execution and operational efficiency.",
+  },
+  {
+    icon: Users,
+    title: "Advisory Support",
+    description: "Ongoing advisory engagement providing structured judgement across business, finance, and operations.",
   },
 ];
 
@@ -85,7 +55,7 @@ export function ServicesPreview() {
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto mb-12">
           {services.map((service, index) => (
             <div
               key={service.title}

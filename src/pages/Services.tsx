@@ -3,203 +3,404 @@ import { Footer } from "@/components/layout/Footer";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { 
-  Presentation, 
   Layers, 
-  LayoutDashboard, 
-  FileText, 
-  Lightbulb, 
-  PenTool, 
-  FolderCheck, 
-  Search, 
-  Palette, 
+  TrendingUp,
+  Presentation, 
   Cpu, 
+  Users,
   ArrowRight,
-  ChevronDown
+  ChevronDown,
+  ChevronRight
 } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 
 const services = [
   {
-    icon: Presentation,
-    title: "Pitch Decks",
-    description: "Investor-focused pitch decks built with structured storytelling, clear logic, and professional presentation.",
-    details: [
-      "Slide structure & problem–solution framing",
-      "Market overview & TAM–SAM–SOM",
-      "Product/service overview & target segments",
-      "Value proposition & go-to-market plan",
-      "Traction, revenue model & cost logic",
-      "Financial summary & use of funds",
-      "Roadmap, ask slide & pitch scripts",
-      "Investor one-pagers"
-    ],
-  },
-  {
     icon: Layers,
     title: "Business Models",
-    description: "Structured business and financial models that explain viability, sustainability, and scale.",
-    details: [
-      "Business model logic & customer segments",
-      "Revenue and cost models",
-      "Unit-level costing & pricing strategy",
-      "Profit and loss & cashflow",
-      "Break-even analysis & assumptions sheets",
-      "GTM logic & roadmap",
-      "Summary insights"
-    ],
+    description: "Comprehensive business model structuring and analysis designed to establish commercial clarity, economic strength, and strategic direction. This service is used to evaluate viability, compare growth options, optimise profitability, and support capital-raising and expansion decisions with rigor.",
+    note: "This service answers how the business truly works, not how it is described.",
+    sections: [
+      {
+        heading: "Business Model Structuring",
+        bullets: [
+          "End-to-end business model design",
+          "Revenue stream identification and layering",
+          "Primary and secondary revenue models",
+          "Pricing structure, logic, and tiers",
+          "Cost structure mapping",
+          "Fixed and variable cost classification",
+          "Value chain and operating model alignment",
+          "Asset-light vs asset-heavy model assessment",
+          "Centralised vs decentralised operating models"
+        ]
+      },
+      {
+        heading: "Revenue & Cost Economics",
+        bullets: [
+          "Unit economics analysis",
+          "Contribution margin analysis",
+          "Gross and operating margin assessment",
+          "Break-even and payback analysis",
+          "Operating leverage analysis",
+          "Cost absorption analysis",
+          "Capacity utilisation impact analysis",
+          "Margin optimisation levers"
+        ]
+      },
+      {
+        heading: "Customer & Market Economics",
+        bullets: [
+          "Customer segmentation economics",
+          "Customer lifetime value analysis",
+          "Customer acquisition cost analysis",
+          "Channel-wise profitability analysis",
+          "Volume, pricing, and mix analysis",
+          "Demand elasticity assessment",
+          "Retention and repeat economics"
+        ]
+      },
+      {
+        heading: "Comparative & Strategic Analysis",
+        bullets: [
+          "Industry benchmarking",
+          "Peer and competitor model comparison",
+          "Model comparison: current vs proposed",
+          "In-house vs outsourced economics",
+          "Subscription vs transactional models",
+          "Scale vs margin trade-off analysis",
+          "Domestic vs international expansion economics"
+        ]
+      },
+      {
+        heading: "Scenario, Risk & Sustainability",
+        bullets: [
+          "Base, upside, and downside model scenarios",
+          "Assumption stress testing",
+          "Sensitivity to pricing, cost, and volume changes",
+          "Risk identification at model level",
+          "Regulatory and operational risk impact",
+          "Long-term sustainability assessment",
+          "Scalability constraints analysis",
+          "Investor-grade documentation and logic notes"
+        ]
+      }
+    ]
   },
   {
-    icon: LayoutDashboard,
-    title: "MIS & Dashboards",
-    description: "Clear, decision-ready MIS and dashboards designed for founders and management.",
-    details: [
-      "Monthly MIS packs",
-      "Revenue and expense summaries",
-      "KPI dashboards",
-      "Cashflow snapshots",
-      "Year-to-date performance",
-      "Basic variance analysis",
-      "Visual charts"
-    ],
+    icon: TrendingUp,
+    title: "Financial Forecasts",
+    description: "Structured financial forecasting and planning built to support disciplined cash management, capital allocation, and performance tracking. This service provides management and investors with credible, defensible numbers grounded in operating reality.",
+    sections: [
+      {
+        heading: "Financial Projections",
+        bullets: [
+          "Profit and Loss projections",
+          "Cash Flow projections",
+          "Balance Sheet projections",
+          "Three to five year integrated forecasts"
+        ]
+      },
+      {
+        heading: "Budgeting & Capital Planning",
+        bullets: [
+          "Annual and operating budgets",
+          "Cash runway and burn analysis",
+          "Fund utilisation planning",
+          "Capital requirement assessment"
+        ]
+      },
+      {
+        heading: "Scenario & Sensitivity",
+        bullets: [
+          "Scenario-based financial outcomes",
+          "Sensitivity to revenue, cost, and capital changes",
+          "Downside risk modelling"
+        ]
+      },
+      {
+        heading: "MIS & Performance Tracking",
+        bullets: [
+          "Management reporting structures",
+          "KPI frameworks",
+          "Periodic performance dashboards",
+          "Decision-support financial reporting"
+        ]
+      }
+    ]
   },
   {
-    icon: FileText,
-    title: "SOP Documentation",
-    description: "Process documentation designed to bring order, clarity, and operational discipline.",
-    details: [
-      "Purpose, scope & definitions",
-      "Roles and responsibilities",
-      "Process descriptions & step-by-step workflows",
-      "Activity flowcharts",
-      "Controls, checks & exception handling",
-      "Templates & RACI matrices",
-      "Review schedules"
-    ],
-  },
-  {
-    icon: Lightbulb,
-    title: "Business & Strategic Advisory",
-    description: "Structured thinking support for direction-setting and informed decision-making.",
-    details: [
-      "Idea review & concept polishing",
-      "Service structuring & pricing logic",
-      "Market direction inputs",
-      "Business plan & financial logic inputs",
-      "Strategy notes & founder discussions",
-      "Management decision support",
-      "Integrated business planning"
-    ],
-  },
-  {
-    icon: PenTool,
-    title: "Business Content & Communication",
-    description: "Clear and structured content aligned with business intent and positioning.",
-    details: [
-      "Company profiles & executive summaries",
-      "Vision–mission–values drafting",
-      "Product and service descriptions",
-      "Website content & pitch scripts",
-      "Founder notes & email templates",
-      "Social media bios",
-      "Marketing plan writing"
-    ],
-  },
-  {
-    icon: FolderCheck,
-    title: "Business Documentation & Governance",
-    description: "Supporting documents for internal structure and control.",
-    details: [
-      "RCM creation",
-      "SOP light documentation",
-      "Policy notes & business process notes",
-      "Assumption sheets & pricing sheets",
-      "Basic internal audit assistance"
-    ],
-  },
-  {
-    icon: Search,
-    title: "Research, Analysis & Strategic Inputs",
-    description: "Research-backed inputs to support clarity and strategic direction.",
-    details: [
-      "Market overview notes",
-      "Competitive landscape summaries",
-      "SWOT analysis & competitive mapping",
-      "Feasibility notes",
-      "Problem–solution mapping",
-      "GTM suggestions & business improvement notes",
-      "Strategic planning inputs"
-    ],
-  },
-  {
-    icon: Palette,
-    title: "Presentation & Visual Support",
-    description: "Refinement and structuring of existing business material.",
-    details: [
-      "Pitch deck formatting",
-      "Visual summary pages",
-      "Clean pastel layouts",
-      "Internal document formatting",
-      "Document cleanup and polishing"
-    ],
+    icon: Presentation,
+    title: "Pitch Decks",
+    description: "Investor-grade pitch decks developed to position the business clearly, credibly, and persuasively before investors, lenders, and strategic partners. This service ensures the opportunity is presented with financial and strategic coherence.",
+    sections: [
+      {
+        heading: "Narrative & Strategic Positioning",
+        bullets: [
+          "Pitch storyline and sequencing",
+          "Founder vision articulation",
+          "Strategic intent positioning",
+          "Problem–solution articulation",
+          "Business overview structuring",
+          "Long-term value creation narrative"
+        ]
+      },
+      {
+        heading: "Market & Competitive Positioning",
+        bullets: [
+          "Market sizing (TAM, SAM, SOM)",
+          "Market growth and trend analysis",
+          "Industry structure assessment",
+          "Competitive landscape mapping",
+          "Differentiation and moat articulation",
+          "Entry barriers and scalability narrative"
+        ]
+      },
+      {
+        heading: "Business & Financial Representation",
+        bullets: [
+          "Business model presentation",
+          "Revenue drivers explanation",
+          "Cost structure overview",
+          "Financial highlights and key metrics",
+          "Unit economics summary",
+          "Operating leverage narrative",
+          "Growth milestones and roadmap"
+        ]
+      },
+      {
+        heading: "Fundraising Readiness",
+        bullets: [
+          "Capital requirement articulation",
+          "Use of funds structuring",
+          "Funding stage alignment",
+          "Investor return logic",
+          "Key risk disclosures",
+          "Investor Q&A preparation",
+          "Deck refinement and iteration"
+        ]
+      }
+    ]
   },
   {
     icon: Cpu,
-    title: "Tech / AI Related Support",
-    description: "Technology support aligned with business systems and workflows.",
-    details: [
-      "AI and advanced tech solutions",
-      "Automation and workflow solutions",
-      "Dashboards and internal tools",
-      "Web and application development",
-      "Testing and quality assurance",
-      "Technical operations support"
-    ],
+    title: "Technology Support",
+    description: "Technology and automation support focused on enabling reliable execution, reporting accuracy, and operational efficiency across business and finance functions.",
+    sections: [
+      {
+        heading: "Product & Platform Development",
+        bullets: [
+          "Website development (static, dynamic, CMS, landing pages)",
+          "Web application development",
+          "Mobile application development (Android / iOS)",
+          "Backend system development",
+          "API integrations",
+          "Third-party tool integrations",
+          "Maintenance, upgrades, and issue resolution"
+        ]
+      },
+      {
+        heading: "Automation & AI",
+        bullets: [
+          "Workflow automation",
+          "Task and process automation",
+          "CRM automation",
+          "Lead and sales process automation",
+          "Finance and reporting automation",
+          "Chatbots for sales, support, and internal use",
+          "AI agents for internal workflows",
+          "Data pipelines and system integrations"
+        ]
+      },
+      {
+        heading: "Dashboards & Internal Tools",
+        bullets: [
+          "Business dashboards",
+          "MIS and reporting dashboards",
+          "Finance dashboards",
+          "Sales and marketing dashboards",
+          "Operations dashboards",
+          "Custom internal tools for finance, sales, and operations",
+          "Data visualisation and reporting frameworks"
+        ]
+      },
+      {
+        heading: "Testing & Reliability",
+        bullets: [
+          "End-to-end testing (web, mobile, desktop)",
+          "Functional testing",
+          "Performance and load testing",
+          "Integration testing",
+          "Basic security testing",
+          "Reliability and stability checks"
+        ]
+      }
+    ]
   },
+  {
+    icon: Users,
+    title: "Advisory Support",
+    description: "Ongoing advisory engagement providing structured judgement and independent perspective across business, finance, marketing, and operations. This service supports leadership decisions where clarity, experience, and continuity are required.",
+    sections: [
+      {
+        heading: "Business & Strategy Advisory",
+        bullets: [
+          "Growth strategy advisory",
+          "Market entry and expansion advisory",
+          "Business restructuring guidance",
+          "Go-to-market strategy",
+          "Pricing and monetisation decisions",
+          "Scale planning and execution guidance"
+        ]
+      },
+      {
+        heading: "Financial & Capital Advisory",
+        bullets: [
+          "Fundraising readiness advisory",
+          "Equity vs debt structuring guidance",
+          "Capital allocation decisions",
+          "Cash flow and liquidity oversight",
+          "Financial risk identification",
+          "Investor and lender discussion support"
+        ]
+      },
+      {
+        heading: "Marketing Advisory",
+        bullets: [
+          "Marketing strategy advisory",
+          "Brand positioning and narrative guidance",
+          "Customer acquisition strategy",
+          "CAC, LTV, and payback analysis",
+          "Marketing budget planning",
+          "Marketing spend effectiveness review",
+          "Channel and campaign evaluation"
+        ]
+      },
+      {
+        heading: "Model, Forecast & Performance Advisory",
+        bullets: [
+          "Business model reviews",
+          "Financial forecast reviews",
+          "Assumption validation",
+          "Scenario interpretation",
+          "Performance gap analysis",
+          "Corrective action guidance"
+        ]
+      },
+      {
+        heading: "Ongoing Engagements",
+        bullets: [
+          "Periodic strategic reviews",
+          "Financial performance monitoring",
+          "Monthly or quarterly advisory calls",
+          "Founder and leadership decision support",
+          "Retainer-based advisory relationships"
+        ]
+      }
+    ]
+  }
 ];
 
-function ServiceCard({ service }: { service: typeof services[0] }) {
-  const [isExpanded, setIsExpanded] = useState(false);
+type ServiceSection = {
+  heading: string;
+  bullets: string[];
+};
+
+type Service = {
+  icon: React.ComponentType<{ className?: string }>;
+  title: string;
+  description: string;
+  note?: string;
+  sections: ServiceSection[];
+};
+
+function ServiceCard({ service }: { service: Service }) {
+  const [expandedSections, setExpandedSections] = useState<Set<number>>(new Set());
+  const [showSections, setShowSections] = useState(false);
+
+  const toggleSection = (index: number) => {
+    const newSet = new Set(expandedSections);
+    if (newSet.has(index)) {
+      newSet.delete(index);
+    } else {
+      newSet.add(index);
+    }
+    setExpandedSections(newSet);
+  };
 
   return (
-    <div className="bg-card border border-border rounded-2xl p-6 hover:shadow-card hover:border-primary/20 transition-all duration-300">
-      <div className="flex items-start gap-4 mb-4">
-        <div className="w-12 h-12 rounded-xl bg-teal-light flex items-center justify-center flex-shrink-0">
-          <service.icon className="w-5 h-5 text-primary" />
+    <div className="bg-card border border-border rounded-2xl p-8 hover:shadow-card hover:border-primary/20 transition-all duration-300">
+      {/* Layer 1: Service name + description */}
+      <div className="flex items-start gap-4 mb-5">
+        <div className="w-14 h-14 rounded-xl bg-teal-light flex items-center justify-center flex-shrink-0">
+          <service.icon className="w-6 h-6 text-primary" />
         </div>
         <div className="flex-1">
-          <h3 className="font-display text-lg font-semibold text-foreground mb-2">
+          <h3 className="font-display text-xl font-semibold text-foreground mb-3">
             {service.title}
           </h3>
           <p className="text-muted-foreground text-sm leading-relaxed">
             {service.description}
           </p>
+          {service.note && (
+            <p className="text-primary text-sm italic mt-3">
+              {service.note}
+            </p>
+          )}
         </div>
       </div>
       
+      {/* Toggle to show/hide content heads */}
       <button
-        onClick={() => setIsExpanded(!isExpanded)}
-        className="flex items-center gap-2 text-primary text-sm font-medium hover:gap-3 transition-all mt-2"
+        onClick={() => setShowSections(!showSections)}
+        className="flex items-center gap-2 text-primary text-sm font-medium hover:gap-3 transition-all mt-4"
       >
-        View details
+        {showSections ? "Hide details" : "View details"}
         <ChevronDown className={cn(
           "w-4 h-4 transition-transform duration-200",
-          isExpanded && "rotate-180"
+          showSections && "rotate-180"
         )} />
       </button>
       
+      {/* Layer 2: Content heads */}
       <div className={cn(
         "overflow-hidden transition-all duration-300",
-        isExpanded ? "max-h-96 mt-4 pt-4 border-t border-border" : "max-h-0"
+        showSections ? "max-h-[2000px] mt-6 pt-6 border-t border-border" : "max-h-0"
       )}>
-        <ul className="space-y-2">
-          {service.details.map((detail, index) => (
-            <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
-              <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-              {detail}
-            </li>
+        <div className="space-y-3">
+          {service.sections.map((section, index) => (
+            <div key={index} className="border border-border/50 rounded-xl overflow-hidden">
+              <button
+                onClick={() => toggleSection(index)}
+                className="w-full flex items-center justify-between p-4 text-left hover:bg-secondary/30 transition-colors"
+              >
+                <span className="font-medium text-foreground text-sm">
+                  {section.heading}
+                </span>
+                <ChevronRight className={cn(
+                  "w-4 h-4 text-primary transition-transform duration-200",
+                  expandedSections.has(index) && "rotate-90"
+                )} />
+              </button>
+              
+              {/* Layer 3: Detailed bullet points */}
+              <div className={cn(
+                "overflow-hidden transition-all duration-200",
+                expandedSections.has(index) ? "max-h-[500px]" : "max-h-0"
+              )}>
+                <ul className="px-4 pb-4 space-y-2">
+                  {section.bullets.map((bullet, bulletIndex) => (
+                    <li key={bulletIndex} className="flex items-start gap-2 text-sm text-muted-foreground">
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                      {bullet}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           ))}
-        </ul>
+        </div>
       </div>
     </div>
   );
@@ -217,7 +418,7 @@ export default function Services() {
               Our Services
             </span>
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground mb-6">
-              Comprehensive Consulting Solutions
+              Services
             </h1>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
               Fitted advisory services designed to address your unique business 
@@ -228,8 +429,8 @@ export default function Services() {
 
         {/* Services Grid */}
         <section className="container mx-auto px-6">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               {services.map((service) => (
                 <ServiceCard key={service.title} service={service} />
               ))}
