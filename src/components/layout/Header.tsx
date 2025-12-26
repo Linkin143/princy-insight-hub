@@ -20,18 +20,18 @@ export function Header() {
   const location = useLocation();
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border/50">
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
-            <div >
-
-              <img className="w-10 h-10 rounded-full gradient-teal flex items-center justify-center border-primary border-2" src={companyLogo} alt="" />
-
-            </div>
-            <span className="font-display font-semibold text-xl text-foreground">
-              Princy Shah Consultancy
+            <img 
+              className="w-10 h-10 rounded-full object-cover border-2 border-primary/30" 
+              src={companyLogo} 
+              alt="Princy Shah Consulting" 
+            />
+            <span className="font-display font-bold text-xl tracking-tight text-foreground">
+              Princy Shah Consulting
             </span>
           </Link>
 
