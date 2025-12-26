@@ -19,8 +19,7 @@ const services = [
   {
     icon: Layers,
     title: "Business Models",
-    description: "Comprehensive business model structuring and analysis designed to establish commercial clarity, economic strength, and strategic direction. This service is used to evaluate viability, compare growth options, optimise profitability, and support capital-raising and expansion decisions with rigor.",
-    note: "This service answers how the business truly works, not how it is described.",
+    shortDescription: "Comprehensive business model structuring and analysis to establish commercial clarity, economic strength, and strategic direction.",
     sections: [
       {
         heading: "Business Model Structuring",
@@ -91,7 +90,7 @@ const services = [
   {
     icon: TrendingUp,
     title: "Financial Forecasts",
-    description: "Structured financial forecasting and planning built to support disciplined cash management, capital allocation, and performance tracking. This service provides management and investors with credible, defensible numbers grounded in operating reality.",
+    shortDescription: "Structured financial forecasting and planning for disciplined cash management, capital allocation, and performance tracking.",
     sections: [
       {
         heading: "Financial Projections",
@@ -133,7 +132,7 @@ const services = [
   {
     icon: Presentation,
     title: "Pitch Decks",
-    description: "Investor-grade pitch decks developed to position the business clearly, credibly, and persuasively before investors, lenders, and strategic partners. This service ensures the opportunity is presented with financial and strategic coherence.",
+    shortDescription: "Investor-grade pitch decks to position the business clearly, credibly, and persuasively before investors and partners.",
     sections: [
       {
         heading: "Narrative & Strategic Positioning",
@@ -186,7 +185,7 @@ const services = [
   {
     icon: Cpu,
     title: "Technology Support",
-    description: "Technology and automation support focused on enabling reliable execution, reporting accuracy, and operational efficiency across business and finance functions.",
+    shortDescription: "Technology and automation support for reliable execution, reporting accuracy, and operational efficiency.",
     sections: [
       {
         heading: "Product & Platform Development",
@@ -241,7 +240,7 @@ const services = [
   {
     icon: Users,
     title: "Advisory Support",
-    description: "Ongoing advisory engagement providing structured judgement and independent perspective across business, finance, marketing, and operations. This service supports leadership decisions where clarity, experience, and continuity are required.",
+    shortDescription: "Ongoing advisory engagement providing structured judgement across business, finance, marketing, and operations.",
     sections: [
       {
         heading: "Business & Strategy Advisory",
@@ -310,89 +309,85 @@ type ServiceSection = {
 type Service = {
   icon: React.ComponentType<{ className?: string }>;
   title: string;
-  description: string;
-  note?: string;
+  shortDescription: string;
   sections: ServiceSection[];
 };
 
 function ServiceCard({ service }: { service: Service }) {
-  const [expandedSections, setExpandedSections] = useState<Set<number>>(new Set());
-  const [showSections, setShowSections] = useState(false);
+  const [isDetailOpen, setIsDetailOpen] = useState(false);
+  const [expandedHeads, setExpandedHeads] = useState<Set<number>>(new Set());
 
-  const toggleSection = (index: number) => {
-    const newSet = new Set(expandedSections);
+  const toggleHead = (index: number) => {
+    const newSet = new Set(expandedHeads);
     if (newSet.has(index)) {
       newSet.delete(index);
     } else {
       newSet.add(index);
     }
-    setExpandedSections(newSet);
+    setExpandedHeads(newSet);
   };
 
   return (
-    <div className="bg-card border border-border rounded-2xl p-8 hover:shadow-card hover:border-primary/20 transition-all duration-300">
-      {/* Layer 1: Service name + description */}
-      <div className="flex items-start gap-4 mb-5">
-        <div className="w-14 h-14 rounded-xl bg-teal-light flex items-center justify-center flex-shrink-0">
-          <service.icon className="w-6 h-6 text-primary" />
-        </div>
-        <div className="flex-1">
-          <h3 className="font-display text-xl font-semibold text-foreground mb-3">
-            {service.title}
-          </h3>
-          <p className="text-muted-foreground text-sm leading-relaxed">
-            {service.description}
-          </p>
-          {service.note && (
-            <p className="text-primary text-sm italic mt-3">
-              {service.note}
+    <div className="bg-card border border-border rounded-2xl overflow-hidden hover:shadow-card hover:border-primary/20 transition-all duration-300">
+      {/* Layer 1: Service Overview */}
+      <div className="p-6">
+        <div className="flex items-start gap-4">
+          <div className="w-12 h-12 rounded-xl bg-teal-light flex items-center justify-center flex-shrink-0">
+            <service.icon className="w-5 h-5 text-primary" />
+          </div>
+          <div className="flex-1">
+            <h3 className="font-display text-lg font-semibold text-foreground mb-2">
+              {service.title}
+            </h3>
+            <p className="text-muted-foreground text-sm leading-relaxed">
+              {service.shortDescription}
             </p>
-          )}
+          </div>
         </div>
+        
+        <button
+          onClick={() => setIsDetailOpen(!isDetailOpen)}
+          className="flex items-center gap-2 text-primary text-sm font-medium hover:gap-3 transition-all mt-4"
+        >
+          {isDetailOpen ? "Hide details" : "Explore scope"}
+          <ChevronDown className={cn(
+            "w-4 h-4 transition-transform duration-200",
+            isDetailOpen && "rotate-180"
+          )} />
+        </button>
       </div>
       
-      {/* Toggle to show/hide content heads */}
-      <button
-        onClick={() => setShowSections(!showSections)}
-        className="flex items-center gap-2 text-primary text-sm font-medium hover:gap-3 transition-all mt-4"
-      >
-        {showSections ? "Hide details" : "View details"}
-        <ChevronDown className={cn(
-          "w-4 h-4 transition-transform duration-200",
-          showSections && "rotate-180"
-        )} />
-      </button>
-      
-      {/* Layer 2: Content heads */}
+      {/* Layer 2: Content Heads (collapsed by default) */}
       <div className={cn(
-        "overflow-hidden transition-all duration-300",
-        showSections ? "max-h-[2000px] mt-6 pt-6 border-t border-border" : "max-h-0"
+        "overflow-hidden transition-all duration-300 border-t border-border",
+        isDetailOpen ? "max-h-[2000px] opacity-100" : "max-h-0 opacity-0 border-t-0"
       )}>
-        <div className="space-y-3">
+        <div className="p-4 space-y-2 bg-secondary/20">
           {service.sections.map((section, index) => (
-            <div key={index} className="border border-border/50 rounded-xl overflow-hidden">
+            <div key={index} className="bg-card border border-border/50 rounded-xl overflow-hidden">
+              {/* Content Head - Clickable */}
               <button
-                onClick={() => toggleSection(index)}
-                className="w-full flex items-center justify-between p-4 text-left hover:bg-secondary/30 transition-colors"
+                onClick={() => toggleHead(index)}
+                className="w-full flex items-center justify-between p-4 text-left hover:bg-secondary/50 transition-colors"
               >
                 <span className="font-medium text-foreground text-sm">
                   {section.heading}
                 </span>
                 <ChevronRight className={cn(
-                  "w-4 h-4 text-primary transition-transform duration-200",
-                  expandedSections.has(index) && "rotate-90"
+                  "w-4 h-4 text-primary transition-transform duration-200 flex-shrink-0",
+                  expandedHeads.has(index) && "rotate-90"
                 )} />
               </button>
               
-              {/* Layer 3: Detailed bullet points */}
+              {/* Layer 3: Bullet Points (revealed on click) */}
               <div className={cn(
-                "overflow-hidden transition-all duration-200",
-                expandedSections.has(index) ? "max-h-[500px]" : "max-h-0"
+                "overflow-hidden transition-all duration-200 bg-secondary/30",
+                expandedHeads.has(index) ? "max-h-[500px]" : "max-h-0"
               )}>
-                <ul className="px-4 pb-4 space-y-2">
+                <ul className="px-4 py-3 space-y-2">
                   {section.bullets.map((bullet, bulletIndex) => (
                     <li key={bulletIndex} className="flex items-start gap-2 text-sm text-muted-foreground">
-                      <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 flex-shrink-0" />
                       {bullet}
                     </li>
                   ))}
@@ -427,7 +422,7 @@ export default function Services() {
           </div>
         </section>
 
-        {/* Services Grid */}
+        {/* Layer 1: Services Overview */}
         <section className="container mx-auto px-6">
           <div className="max-w-5xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
