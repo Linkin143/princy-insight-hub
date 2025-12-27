@@ -9,7 +9,6 @@ const navItems = [
   { name: "Home", path: "/" },
   { name: "About", path: "/about" },
   { name: "Services", path: "/services" },
-  { name: "Sample Work", path: "/sample-work" },
   { name: "Why Us", path: "/why-us" },
   { name: "Testimonials", path: "/testimonials" },
   { name: "Contact", path: "/contact" },
@@ -31,7 +30,11 @@ export function Header() {
               alt="Princy Shah Consulting" 
             />
             <span className="font-display font-bold text-xl tracking-tight text-foreground">
-              Princy Shah Consulting
+              <span className="hidden sm:inline">Princy Shah Consulting</span>
+              <span className="sm:hidden flex flex-col leading-tight">
+                <span>Princy Shah</span>
+                <span>Consulting</span>
+              </span>
             </span>
           </Link>
 

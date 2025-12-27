@@ -28,7 +28,7 @@ export function Footer() {
           <div>
             <h4 className="font-display font-semibold text-lg mb-4">Quick Links</h4>
             <ul className="space-y-3">
-              {["About", "Services", "Sample Work", "Testimonials"].map((item) => (
+              {["About", "Services", "Testimonials"].map((item) => (
                 <li key={item}>
                   <Link
                     to={`/${item.toLowerCase().replace(" ", "-")}`}
@@ -81,7 +81,7 @@ export function Footer() {
 
         <div className="border-t border-primary-foreground/20 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-primary-foreground/60 text-sm">
-            © 2024 Princy Shah Consulting. All rights reserved.
+            © 2026 Princy Shah Consulting. All rights reserved.
           </p>
           <div className="flex gap-6">
             <Link to="/privacy" className="text-primary-foreground/60 hover:text-primary-foreground transition-colors text-sm">
