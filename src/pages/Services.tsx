@@ -416,7 +416,7 @@ export default function Services() {
               Services
             </h1>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Fitted advisory services designed to address your unique business 
+              Fitted consultancy services designed to address your unique business 
               challenges and unlock new opportunities for growth.
             </p>
           </div>

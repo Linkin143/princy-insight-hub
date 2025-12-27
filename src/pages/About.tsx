@@ -27,12 +27,26 @@ export default function About() {
         {/* Founder Section */}
         <section className="container mx-auto px-6 mb-20">
           <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-              <div className="order-2 lg:order-1">
-                <h2 className="font-display text-3xl md:text-4xl font-semibold text-foreground mb-2">
-                  Princy Shah
-                </h2>
-                <p className="text-primary font-medium mb-6">Founder</p>
+            <div className="flex flex-col items-center text-center">
+              {/* Circular Photo Frame */}
+              <div className="w-64 h-64 md:w-80 md:h-80 rounded-full bg-secondary/50 border-4 border-primary/20 overflow-hidden shadow-xl mb-8">
+                <img 
+                  src={FounderProfile} 
+                  alt="Princy Shah - Founder" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              
+              {/* Title */}
+              <h2 className="font-display text-3xl md:text-4xl font-semibold text-[hsl(210,60%,25%)] mb-2">
+                Founder
+              </h2>
+              <p className="text-[hsl(200,50%,45%)] text-xl md:text-2xl font-medium mb-8">
+                Princy Shah
+              </p>
+              
+              {/* Description */}
+              <div className="max-w-2xl">
                 <p className="text-muted-foreground text-lg mb-6 leading-relaxed">
                   I founded Princy Shah Consulting to bring clarity and innovation to 
                   businesses seeking meaningful growth. My approach combines deep analytical 
@@ -42,19 +56,6 @@ export default function About() {
                   I believe in building lasting partnerships with my clients, understanding 
                   their unique needs, and delivering solutions that create real, measurable impact.
                 </p>
-              </div>
-              <div className="order-1 lg:order-2 flex justify-center">
-                <div className="relative">
-                  {/* Circular Photo Frame */}
-                  <div className="w-64 h-64 md:w-80 md:h-80 rounded-full bg-secondary/50 border-4 border-primary/20 overflow-hidden shadow-xl">
-                    <img 
-                      src={FounderProfile} 
-                      alt="Princy Shah - Founder" 
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <p className="text-center mt-4 text-primary font-medium">Founder</p>
-                </div>
               </div>
             </div>
           </div>
