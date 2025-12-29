@@ -17,17 +17,17 @@ const businessModels: SampleProject[] = [
   {
     name: "Casa Edge — B2B Furniture Business",
     description: "A structured business model developed for a B2B furniture manufacturing and distribution business, focusing on project-based revenue, cost structure, capacity utilisation, and margin behaviour.",
-    fileUrl: "#", // Replace with Google Drive link
+    fileUrl: "https://drive.google.com/file/d/19OjOuqd9SihxbTRajFZYjNX9x-KmKGQc/view?usp=drivesdk",
   },
   {
     name: "Audit IQ — Audit Software Tool",
     description: "A business model created for an audit-focused software platform, capturing subscription logic, user scaling, fixed vs variable costs, and long-term operating leverage.",
-    fileUrl: "#", // Replace with Google Drive link
+    fileUrl: "https://drive.google.com/file/d/1-KH4-n-8WhVpDib8au_ugLmEz7E7_H3Z/view?usp=drivesdk", 
   },
   {
     name: "Ecotrax — Carbon Trading Platform",
     description: "A business model designed for a carbon trading platform, analysing transaction-based revenues, compliance flows, platform scalability, and regulatory sensitivity.",
-    fileUrl: "#", // Replace with Google Drive link
+    fileUrl: "https://drive.google.com/file/d/1zV9CsV-Jyaee-Pp6tPqFiGVkdiRn_0Te/view?usp=drivesdk",
   },
 ];
 
