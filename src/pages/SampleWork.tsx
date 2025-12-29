@@ -1,9 +1,9 @@
-import { useState } from "react";
-import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { Header } from "@/components/layout/Header";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { ExternalLink, FileText } from "lucide-react";
+import { useState } from "react";
 
 type TabType = "business-models" | "pitch-decks" | "financial-forecasts";
 
@@ -35,17 +35,17 @@ const pitchDecks: SampleProject[] = [
   {
     name: "Fund Bridge — Investor & Startup Platform",
     description: "A pitch deck created for a platform connecting startups seeking capital with investors, focusing on marketplace dynamics, trust mechanisms, and monetisation logic.",
-    fileUrl: "#", // Replace with Google Drive link
+    fileUrl: "https://docs.google.com/presentation/d/1VtfueDI-Jlozf0Ut4SsKN-oQ-tD3yd0-9-TCHL6OMs4/edit?usp=drivesdk", 
   },
   {
     name: "Coinnect — Online Money Transfer App",
     description: "An investor pitch deck developed for a digital money transfer application, highlighting transaction flows, user acquisition, compliance considerations, and revenue scalability.",
-    fileUrl: "#", // Replace with Google Drive link
+    fileUrl: "https://docs.google.com/presentation/d/1_w3yFC6WO_1LqHYNMFn27AG6-puXPYCnNlTGQNTDIHU/edit?usp=drivesdk", 
   },
   {
     name: "Mindsync — Ed-Tech Platform",
     description: "A pitch deck built for an education technology platform for students, focusing on learning delivery, user engagement, pricing structure, and growth strategy.",
-    fileUrl: "#", // Replace with Google Drive link
+    fileUrl: "https://docs.google.com/presentation/d/1yAgfY7HoBM7VxQD-lbHu70iAgrm9XygAkcGGBAlLOpk/edit?usp=drivesdk", 
   },
 ];
 
