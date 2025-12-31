@@ -47,7 +47,12 @@ export function Footer() {
             <ul className="space-y-3">
               {["Business Models", "Financial Forecasts", "Pitch Decks", "Technology Support", "Advisory Support"].map((item) => (
                 <li key={item}>
-                  <span className="text-primary-foreground/70 text-sm">{item}</span>
+                  <Link
+                    to="/services"
+                    className="text-primary-foreground/70 hover:text-primary-foreground transition-colors text-sm"
+                  >
+                    {item}
+                  </Link>
                 </li>
               ))}
             </ul>
