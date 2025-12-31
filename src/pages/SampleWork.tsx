@@ -50,7 +50,21 @@ const pitchDecks: SampleProject[] = [
 ];
 
 const financialForecasts: SampleProject[] = [
-  // Placeholder for future uploads
+  {
+    name: "Aglovert Financial Forecast",
+    description: "This document presents a 10-year financial forecast for AlgoVert Systems Pvt. Ltd., a climate-technology manufacturing company operating in the algae-based infrastructure sector. The model outlines capacity-driven growth, cost structure, cash flows, and return metrics relevant to lenders and strategic investors.",
+    fileUrl: "https://docs.google.com/spreadsheets/d/1tU08a8SiZyGnw4J8MWse2D6Cei2qTJxO/edit?usp=drivesdk&ouid=103733368164589374040&rtpof=true&sd=true", 
+  },
+  {
+    name: "Botanica Financial Forecast",
+    description: "Financial forecast for Botanica Consumer Private Limited, a D2C packaged beverage brand, presenting a 24-month, unit-driven view of revenue, margins, operating leverage, and cash runway.",
+    fileUrl: "https://docs.google.com/spreadsheets/d/12GnSr_Om2JDKc-phSMsoegKCDSRUepKl/edit?usp=drivesdk&ouid=103733368164589374040&rtpof=true&sd=true", 
+  },
+  {
+    name: "Aurevia MedTech Pvt Ltd Financial Forecast",
+    description: "This document provides a 4-year, investor-grade financial forecast for Aurevia MedTech Private Limited, a medical device and diagnostics company. It details revenue build-up, cost structure, capital requirements, cash flows, and break-even analysis to support informed investor and board-level decision-making.",
+    fileUrl: "https://docs.google.com/spreadsheets/d/14X9QRI4dwrglyxWcm7NbhflH8qJAI05G/edit?usp=drivesdk&ouid=103733368164589374040&rtpof=true&sd=true", 
+  },
 ];
 
 const tabDescriptions: Record<TabType, string> = {
