@@ -1,6 +1,6 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { 
   Layers, 
@@ -12,7 +12,7 @@ import {
   ChevronDown,
   ChevronRight
 } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 
 const services = [
@@ -313,7 +313,7 @@ type Service = {
   sections: ServiceSection[];
 };
 
-function ServiceCard({ service }: { service: Service }) {
+function ServiceCard({ service, id }: { service: Service; id: string }) {
   const [isDetailOpen, setIsDetailOpen] = useState(false);
   const [expandedHeads, setExpandedHeads] = useState<Set<number>>(new Set());
 
@@ -328,7 +328,7 @@ function ServiceCard({ service }: { service: Service }) {
   };
 
   return (
-    <div className="bg-card border border-border rounded-2xl overflow-hidden hover:shadow-card hover:border-primary/20 transition-all duration-300">
+    <div id={id} className="bg-card border border-border rounded-2xl overflow-hidden hover:shadow-card hover:border-primary/20 transition-all duration-300 scroll-mt-32">
       {/* Layer 1: Service Overview */}
       <div className="p-6">
         <div className="flex items-start gap-4">
@@ -401,7 +401,29 @@ function ServiceCard({ service }: { service: Service }) {
   );
 }
 
+const serviceIds: Record<string, string> = {
+  "Business Models": "business-models",
+  "Financial Forecasts": "financial-forecasts",
+  "Pitch Decks": "pitch-decks",
+  "Technology Support": "technology-support",
+  "Advisory Support": "advisory-support"
+};
+
 export default function Services() {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const elementId = location.hash.substring(1);
+      const element = document.getElementById(elementId);
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
+    }
+  }, [location.hash]);
+
   return (
     <div className="min-h-screen">
       <Header />
@@ -424,7 +446,7 @@ export default function Services() {
           <div className="max-w-5xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               {services.map((service) => (
-                <ServiceCard key={service.title} service={service} />
+                <ServiceCard key={service.title} service={service} id={serviceIds[service.title]} />
               ))}
             </div>
           </div>
