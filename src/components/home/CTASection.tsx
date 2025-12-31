@@ -4,9 +4,9 @@ import { ArrowRight } from "lucide-react";
 
 export function CTASection() {
   return (
-    <section className="py-24 bg-background">
+    <section className="py-16 bg-background">
       <div className="container mx-auto px-6">
-        <div className="max-w-4xl mx-auto text-center rounded-3xl gradient-teal p-12 md:p-16 shadow-elevated relative overflow-hidden">
+        <div className="max-w-4xl mx-auto text-center rounded-3xl gradient-teal p-10 md:p-12 shadow-elevated relative overflow-hidden">
           {/* Background decorations */}
           <div className="absolute top-0 right-0 w-64 h-64 bg-primary-foreground/10 rounded-full -translate-y-1/2 translate-x-1/2" />
           <div className="absolute bottom-0 left-0 w-48 h-48 bg-primary-foreground/10 rounded-full translate-y-1/2 -translate-x-1/2" />

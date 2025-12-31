@@ -29,16 +29,13 @@ const reasons = [
 
 export function WhyUsSection() {
   return (
-    <section className="py-24 bg-secondary/50">
+    <section className="py-16 bg-secondary/50">
       <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
           {/* Content */}
           <div>
-            <span className="text-primary font-medium text-sm tracking-wider uppercase mb-4 block">
+            <h2 className="font-display text-3xl md:text-4xl font-semibold text-foreground mb-6">
               Why Choose Us
-            </span>
-            <h2 className="font-display text-4xl md:text-5xl font-semibold text-foreground mb-6">
-              A Partner Invested in Your Success
             </h2>
             <p className="text-muted-foreground text-lg mb-10">
               We combine deep expertise with a collaborative approach, ensuring every 

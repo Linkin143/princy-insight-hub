@@ -149,8 +149,11 @@ export default function Contact() {
                   </p>
                   <Button 
                     className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 w-full"
+                    asChild
                   >
-                    Book a Call
+                    <a href="https://calendly.com" target="_blank" rel="noopener noreferrer">
+                      Book a Call
+                    </a>
                   </Button>
                 </div>
               </div>

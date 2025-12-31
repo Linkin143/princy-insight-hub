@@ -409,11 +409,8 @@ export default function Services() {
         {/* Hero */}
         <section className="container mx-auto px-6 mb-16">
           <div className="max-w-4xl mx-auto text-center">
-            <span className="text-primary font-medium text-sm tracking-wider uppercase mb-4 block">
-              Our Services
-            </span>
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground mb-6">
-              Services
+              Fitted Consultancy Services
             </h1>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
               Fitted consultancy services designed to address your unique business 
