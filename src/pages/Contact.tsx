@@ -26,7 +26,7 @@ export default function Contact() {
               Let's Start a Conversation
             </h1>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Ready to discuss how strategic consulting can help you achieve your 
+              Ready to discuss how strategic consulting can help you achieve your
               business goals? We'd love to hear from you.
             </p>
           </div>
@@ -72,8 +72,8 @@ export default function Contact() {
                     <label className="block text-sm font-medium text-foreground mb-2">
                       Message
                     </label>
-                    <Textarea 
-                      placeholder="Tell us about your project or inquiry..." 
+                    <Textarea
+                      placeholder="Tell us about your project or inquiry..."
                       rows={5}
                       required
                     />
@@ -91,15 +91,15 @@ export default function Contact() {
                     Get in Touch
                   </h2>
                   <p className="text-muted-foreground leading-relaxed">
-                    We're here to answer any questions you may have about our 
-                    consulting services. Reach out to us and we'll respond as 
+                    We're here to answer any questions you may have about our
+                    consulting services. Reach out to us and we'll respond as
                     soon as possible.
                   </p>
                 </div>
 
                 <div className="space-y-6">
-                  <a 
-                    href="tel:9284261593" 
+                  <a
+                    href="tel:9284261593"
                     className="flex items-start gap-4 p-4 rounded-xl bg-secondary hover:bg-secondary/80 transition-colors"
                   >
                     <div className="w-12 h-12 rounded-xl bg-teal-light flex items-center justify-center flex-shrink-0">
@@ -111,8 +111,8 @@ export default function Contact() {
                     </div>
                   </a>
 
-                  <a 
-                    href="mailto:princyshahconsulting@gmail.com" 
+                  <a
+                    href="mailto:princyshahconsulting@gmail.com"
                     className="flex items-start gap-4 p-4 rounded-xl bg-secondary hover:bg-secondary/80 transition-colors"
                   >
                     <div className="w-12 h-12 rounded-xl bg-teal-light flex items-center justify-center flex-shrink-0">
@@ -124,8 +124,8 @@ export default function Contact() {
                     </div>
                   </a>
 
-                  <a 
-                    href="https://www.linkedin.com/in/princy-shah-071882176/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" 
+                  <a
+                    href="https://www.linkedin.com/in/princy-shah-071882176/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
                     className="flex items-start gap-4 p-4 rounded-xl bg-secondary hover:bg-secondary/80 transition-colors"
                   >
                     <div className="w-12 h-12 rounded-xl bg-teal-light flex items-center justify-center flex-shrink-0">
@@ -141,18 +141,18 @@ export default function Contact() {
                 {/* CTA Card */}
                 <div className="bg-teal-dark rounded-3xl p-8 mt-8">
                   <h3 className="font-display text-xl font-semibold text-primary-foreground mb-3">
-                    Schedule a Consultation
+                    Chat With Us on WhatsApp
                   </h3>
                   <p className="text-primary-foreground/80 text-sm mb-6">
-                    Prefer to speak directly? Schedule a call with our team 
-                    to discuss your specific needs.
+                    Have questions or need quick support? Our team is just a message away.
+                    Tap below to start a WhatsApp conversation with us instantly.
                   </p>
-                  <Button 
+                  <Button
                     className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 w-full"
                     asChild
                   >
-                    <a href="https://calendly.com" target="_blank" rel="noopener noreferrer">
-                      Book a Call
+                    <a href="https://wa.me/917350487002?text=Hello%20I%20need%20more%20information" target="_blank" rel="noopener noreferrer">
+                      WhatsApp Us
                     </a>
                   </Button>
                 </div>
