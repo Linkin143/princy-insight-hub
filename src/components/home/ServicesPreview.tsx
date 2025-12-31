@@ -122,15 +122,12 @@ function ServiceCard({ service }: { service: Service }) {
 
 export function ServicesPreview() {
   return (
-    <section className="py-24 bg-background">
+    <section className="py-16 bg-background">
       <div className="container mx-auto px-6">
         {/* Section Header */}
-        <div className="max-w-2xl mx-auto text-center mb-16">
-          <span className="text-primary font-medium text-sm tracking-wider uppercase mb-4 block">
+        <div className="max-w-2xl mx-auto text-center mb-12">
+          <h2 className="font-display text-3xl md:text-4xl font-semibold text-foreground mb-6">
             Our Services
-          </span>
-          <h2 className="font-display text-4xl md:text-5xl font-semibold text-foreground mb-6">
-            Comprehensive Consulting Solutions
           </h2>
           <p className="text-muted-foreground text-lg">
             Services specially structured to suit the style and stage of your business, combining clarity, research, and disciplined thinking to add value beyond documentation.

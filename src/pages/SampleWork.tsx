@@ -161,21 +161,23 @@ export default function SampleWork() {
         {/* Tabs Section */}
         <section className="py-12 md:py-16">
           <div className="container mx-auto px-6">
-            {/* Tab Buttons */}
-            <div className="flex flex-wrap justify-center gap-3 mb-10">
-              {tabs.map((tab) => (
-                <button
-                  key={tab.id}
-                  onClick={() => setActiveTab(tab.id)}
-                  className={`px-6 py-3 rounded-full font-medium text-sm md:text-base transition-all duration-300 ${
-                    activeTab === tab.id
-                      ? "bg-primary text-primary-foreground shadow-card"
-                      : "bg-secondary text-muted-foreground hover:bg-secondary/80 hover:text-foreground"
-                  }`}
-                >
-                  {tab.label}
-                </button>
-              ))}
+            {/* Tab Buttons - Simplified with icons */}
+            <div className="flex justify-center mb-10">
+              <div className="inline-flex bg-secondary/50 rounded-xl p-1.5 gap-1">
+                {tabs.map((tab) => (
+                  <button
+                    key={tab.id}
+                    onClick={() => setActiveTab(tab.id)}
+                    className={`px-5 py-3 rounded-lg font-medium text-sm transition-all duration-300 ${
+                      activeTab === tab.id
+                        ? "bg-primary text-primary-foreground shadow-md"
+                        : "text-muted-foreground hover:text-foreground hover:bg-secondary"
+                    }`}
+                  >
+                    {tab.label}
+                  </button>
+                ))}
+              </div>
             </div>
 
             {/* Tab Description */}
