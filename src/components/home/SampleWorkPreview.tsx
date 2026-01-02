@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { FileText, PresentationIcon, TrendingUp, ArrowRight } from "lucide-react";
+import { ArrowRight, FileText, PresentationIcon, TrendingUp } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const sampleWorkCategories = [
   {
@@ -22,7 +22,7 @@ const sampleWorkCategories = [
     icon: TrendingUp,
     title: "Financial Forecasts",
     description: "Detailed financial projections and analysis models",
-    samples: ["Coming Soon"],
+    samples: ["Aglovert", "Botanica", "Aurevia MedTech Pvt Ltd"],
     tab: "financial-forecasts"
   }
 ];
