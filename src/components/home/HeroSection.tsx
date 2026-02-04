@@ -60,10 +60,17 @@ export function HeroSection() {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8 animate-fade-in-up-delayed-2">
             <Button variant="hero" size="xl" asChild>
-              <Link to="/contact">Get Started</Link>
+              <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1234567890" target="_blank" rel="noopener noreferrer">
+                Schedule a Call
+              </a>
             </Button>
             <Button variant="heroOutline" size="xl" asChild>
-              <Link to="/services">Explore Services</Link>
+              <Link to="/contact">Send an Inquiry</Link>
+            </Button>
+            <Button size="xl" className="bg-green-600 text-white hover:bg-green-700" asChild>
+              <a href="https://wa.me/919284261593?text=Hi%2C%20I%20would%20like%20to%20inquire%20about%20your%20consulting%20services." target="_blank" rel="noopener noreferrer">
+                WhatsApp Message
+              </a>
             </Button>
           </div>
 

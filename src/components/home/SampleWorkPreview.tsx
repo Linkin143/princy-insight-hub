@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, FileText, PresentationIcon, TrendingUp } from "lucide-react";
+import { ArrowRight, ClipboardCheck, FileText, PresentationIcon, ScrollText, TrendingUp } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const sampleWorkCategories = [
@@ -22,8 +22,22 @@ const sampleWorkCategories = [
     icon: TrendingUp,
     title: "Financial Forecasts",
     description: "Detailed financial projections and analysis models",
-    samples: ["Aglovert", "Botanica", "Aurevia MedTech Pvt Ltd"],
+    samples: ["Aglovert", "Botanica", "Aurevia MedTech"],
     tab: "financial-forecasts"
+  },
+  {
+    icon: ClipboardCheck,
+    title: "Process Reviews",
+    description: "Business process analysis and improvement documentation",
+    samples: ["Coming Soon"],
+    tab: "process-reviews"
+  },
+  {
+    icon: ScrollText,
+    title: "SOPs & RCMs",
+    description: "Standard Operating Procedures and Risk Control Matrices",
+    samples: ["Coming Soon"],
+    tab: "sops-rcms"
   }
 ];
 
