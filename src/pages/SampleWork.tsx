@@ -5,7 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { ExternalLink, FileText } from "lucide-react";
 import { useState } from "react";
 
-type TabType = "business-models" | "pitch-decks" | "financial-forecasts";
+type TabType = "business-models" | "pitch-decks" | "financial-forecasts" | "process-reviews" | "sops-rcms";
 
 interface SampleProject {
   name: string;
@@ -67,10 +67,17 @@ const financialForecasts: SampleProject[] = [
   },
 ];
 
+// Empty arrays for new tabs - to be populated with Google Drive links
+const processReviews: SampleProject[] = [];
+
+const sopsRcms: SampleProject[] = [];
+
 const tabDescriptions: Record<TabType, string> = {
   "business-models": "This folder contains structured business models built to understand revenue mechanics, cost behaviour, scalability, and long-term sustainability across different business types.",
   "pitch-decks": "This folder contains investor-oriented pitch decks created to demonstrate narrative structure, clarity of positioning, and financial articulation across different business ideas.",
   "financial-forecasts": "This folder includes structured financial forecasts prepared to demonstrate scenario planning, cash flow visibility, and decision-oriented financial projections.",
+  "process-reviews": "This folder contains sample process review documents demonstrating how we analyse, document, and improve business processes across various functions.",
+  "sops-rcms": "This folder includes sample Standard Operating Procedures (SOPs) and Risk Control Matrices (RCMs) developed to establish clear operational guidelines and risk management frameworks.",
 };
 
 function ProjectCard({ project }: { project: SampleProject }) {
@@ -138,6 +145,8 @@ export default function SampleWork() {
     { id: "business-models", label: "Business Models" },
     { id: "pitch-decks", label: "Pitch Decks" },
     { id: "financial-forecasts", label: "Financial Forecasts" },
+    { id: "process-reviews", label: "Process Reviews" },
+    { id: "sops-rcms", label: "SOPs & RCMs" },
   ];
 
   const getProjects = () => {
@@ -148,6 +157,10 @@ export default function SampleWork() {
         return pitchDecks;
       case "financial-forecasts":
         return financialForecasts;
+      case "process-reviews":
+        return processReviews;
+      case "sops-rcms":
+        return sopsRcms;
     }
   };
 
@@ -214,6 +227,12 @@ export default function SampleWork() {
                   <PlaceholderCard />
                 </>
               )}
+            </div>
+            {/* Disclaimer */}
+            <div className="mt-12 text-center">
+              <p className="text-sm text-muted-foreground italic">
+                All samples are anonymised and shared for illustrative purposes only.
+              </p>
             </div>
           </div>
         </section>

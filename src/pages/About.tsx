@@ -1,7 +1,42 @@
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
-import { Award, Eye, Linkedin, Mail, Phone, Sparkles, Target, Users, Zap } from "lucide-react";
+import { Award, ClipboardCheck, Eye, FileText, Linkedin, Mail, Phone, Sparkles, Target, Users, Zap } from "lucide-react";
 import FounderProfile from "../../attachments/Profile Photo/Founder_Pic.jpeg";
+
+const industries = [
+  "Solar Energy",
+  "Construction",
+  "Biomass & Green Hydrogen",
+  "Beauty & Cosmetics",
+  "SaaS Platforms",
+  "MedTech",
+  "D2C Brands",
+  "Furniture",
+  "EdTech",
+];
+
+const coreExpertise = [
+  {
+    icon: ClipboardCheck,
+    title: "Process Reviews",
+    description: "Comprehensive analysis and improvement of business processes for operational excellence.",
+  },
+  {
+    icon: FileText,
+    title: "SOPs & RCMs",
+    description: "Structured documentation and risk control frameworks for consistent operations.",
+  },
+  {
+    icon: Target,
+    title: "Strategic Advisory",
+    description: "Vision-led guidance for business growth, investor readiness, and market positioning.",
+  },
+  {
+    icon: Zap,
+    title: "Implementation Focus",
+    description: "Not just strategy — we ensure actionable frameworks that drive real results.",
+  },
+];
 
 export default function About() {
   return (
@@ -9,7 +44,7 @@ export default function About() {
       <Header />
       <main className="pt-32 pb-24">
         {/* Hero */}
-        <section className="container mx-auto px-6 mb-20">
+        <section className="container mx-auto px-6 mb-16">
           <div className="max-w-4xl mx-auto text-center">
             <span className="text-primary font-medium text-sm tracking-wider uppercase mb-4 block">
               About Us
@@ -21,6 +56,57 @@ export default function About() {
               Princy Shah Consulting is a founder-led strategic advisory firm dedicated 
               to helping businesses navigate complexity and achieve innovative growth.
             </p>
+          </div>
+        </section>
+
+        {/* What We Do */}
+        <section className="container mx-auto px-6 mb-20">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="font-display text-3xl md:text-4xl font-semibold text-foreground mb-4">
+                What We Do
+              </h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                We help businesses build clarity, structure, and systems that scale — from process optimization 
+                to investor-ready documentation and strategic advisory.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {coreExpertise.map((item, index) => (
+                <div key={index} className="bg-secondary/30 rounded-2xl p-6 border border-border hover:shadow-card transition-shadow">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                    <item.icon className="w-6 h-6 text-primary" />
+                  </div>
+                  <h3 className="font-semibold text-foreground mb-2">{item.title}</h3>
+                  <p className="text-muted-foreground text-sm">{item.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Industries We've Worked With */}
+        <section className="container mx-auto px-6 mb-20">
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-secondary/50 rounded-3xl p-8 md:p-10 text-center">
+              <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-4">
+                Industries We've Worked With
+              </h2>
+              <p className="text-muted-foreground mb-6">
+                We bring cross-industry experience to every engagement, adapting best practices across sectors.
+              </p>
+              <div className="flex flex-wrap justify-center gap-3">
+                {industries.map((industry, index) => (
+                  <span 
+                    key={index}
+                    className="px-4 py-2 bg-background border border-border rounded-full text-sm text-foreground"
+                  >
+                    {industry}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
 
@@ -38,10 +124,10 @@ export default function About() {
               </div>
               
               {/* Title */}
-              <h2 className="font-display text-3xl md:text-4xl font-semibold text-[hsl(210,60%,25%)] mb-2">
+              <h2 className="font-display text-3xl md:text-4xl font-semibold text-foreground mb-2">
                 Founder
               </h2>
-              <p className="text-[hsl(200,50%,45%)] text-xl md:text-2xl font-medium mb-8">
+              <p className="text-primary text-xl md:text-2xl font-medium mb-8">
                 Princy Shah
               </p>
               
@@ -166,7 +252,7 @@ export default function About() {
         {/* Contact Info */}
         <section className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
-            <div className="bg-teal-dark rounded-3xl p-8 md:p-12">
+            <div className="bg-primary rounded-3xl p-8 md:p-12">
               <h2 className="font-display text-2xl md:text-3xl font-semibold text-primary-foreground mb-8 text-center">
                 Get in Touch
               </h2>
@@ -188,6 +274,8 @@ export default function About() {
                 <a 
                   href="https://www.linkedin.com/in/princy-shah-071882176/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" 
                   className="flex items-center gap-4 p-4 rounded-xl bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <Linkedin className="w-5 h-5 text-primary-foreground" />
                   <span className="text-primary-foreground">LinkedIn</span>
