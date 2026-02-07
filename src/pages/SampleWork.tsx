@@ -5,7 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { ExternalLink, FileText } from "lucide-react";
 import { useState } from "react";
 
-type TabType = "business-models" | "pitch-decks" | "financial-forecasts" | "process-reviews" | "sops-rcms";
+type TabType = "process-reviews" | "sops" | "business-models" | "pitch-decks" | "financial-forecasting" | "strategy-optimization" | "advisory-support" | "technology-support";
 
 interface SampleProject {
   name: string;
@@ -52,32 +52,36 @@ const pitchDecks: SampleProject[] = [
 const financialForecasts: SampleProject[] = [
   {
     name: "Aglovert Financial Forecast",
-    description: "This document presents a 10-year financial forecast for AlgoVert Systems Pvt. Ltd., a climate-technology manufacturing company operating in the algae-based infrastructure sector. The model outlines capacity-driven growth, cost structure, cash flows, and return metrics relevant to lenders and strategic investors.",
+    description: "This document presents a 10-year financial forecast for AlgoVert Systems Pvt. Ltd., a climate-technology manufacturing company operating in the algae-based infrastructure sector.",
     fileUrl: "https://docs.google.com/spreadsheets/d/1tU08a8SiZyGnw4J8MWse2D6Cei2qTJxO/edit?usp=drivesdk&ouid=103733368164589374040&rtpof=true&sd=true", 
   },
   {
     name: "Botanica Financial Forecast",
-    description: "Financial forecast for Botanica Consumer Private Limited, a D2C packaged beverage brand, presenting a 24-month, unit-driven view of revenue, margins, operating leverage, and cash runway.",
+    description: "Financial forecast for Botanica Consumer Private Limited, a D2C packaged beverage brand, presenting a 24-month, unit-driven view of revenue, margins, and cash runway.",
     fileUrl: "https://docs.google.com/spreadsheets/d/12GnSr_Om2JDKc-phSMsoegKCDSRUepKl/edit?usp=drivesdk&ouid=103733368164589374040&rtpof=true&sd=true", 
   },
   {
     name: "Aurevia MedTech Pvt Ltd Financial Forecast",
-    description: "This document provides a 4-year, investor-grade financial forecast for Aurevia MedTech Private Limited, a medical device and diagnostics company. It details revenue build-up, cost structure, capital requirements, cash flows, and break-even analysis to support informed investor and board-level decision-making.",
+    description: "A 4-year, investor-grade financial forecast for Aurevia MedTech Private Limited, detailing revenue build-up, cost structure, capital requirements, and break-even analysis.",
     fileUrl: "https://docs.google.com/spreadsheets/d/14X9QRI4dwrglyxWcm7NbhflH8qJAI05G/edit?usp=drivesdk&ouid=103733368164589374040&rtpof=true&sd=true", 
   },
 ];
 
-// Empty arrays for new tabs - to be populated with Google Drive links
 const processReviews: SampleProject[] = [];
-
-const sopsRcms: SampleProject[] = [];
+const sops: SampleProject[] = [];
+const strategyOptimization: SampleProject[] = [];
+const advisorySupport: SampleProject[] = [];
+const technologySupport: SampleProject[] = [];
 
 const tabDescriptions: Record<TabType, string> = {
-  "business-models": "This folder contains structured business models built to understand revenue mechanics, cost behaviour, scalability, and long-term sustainability across different business types.",
-  "pitch-decks": "This folder contains investor-oriented pitch decks created to demonstrate narrative structure, clarity of positioning, and financial articulation across different business ideas.",
-  "financial-forecasts": "This folder includes structured financial forecasts prepared to demonstrate scenario planning, cash flow visibility, and decision-oriented financial projections.",
-  "process-reviews": "This folder contains sample process review documents demonstrating how we analyse, document, and improve business processes across various functions.",
-  "sops-rcms": "This folder includes sample Standard Operating Procedures (SOPs) and Risk Control Matrices (RCMs) developed to establish clear operational guidelines and risk management frameworks.",
+  "process-reviews": "This section contains sample process review documents demonstrating how we analyse, document, and improve business processes across various functions.",
+  "sops": "This section includes sample Standard Operating Procedures developed to establish clear operational guidelines and consistent execution frameworks.",
+  "business-models": "This section contains structured business models built to understand revenue mechanics, cost behaviour, scalability, and long-term sustainability across different business types.",
+  "pitch-decks": "This section contains investor-oriented pitch decks created to demonstrate narrative structure, clarity of positioning, and financial articulation across different business ideas.",
+  "financial-forecasting": "This section includes structured financial forecasts prepared to demonstrate scenario planning, cash flow visibility, and decision-oriented financial projections.",
+  "strategy-optimization": "This section showcases strategy optimization frameworks and analyses developed to sharpen business direction and competitive positioning.",
+  "advisory-support": "This section contains samples of advisory deliverables across business, finance, marketing, and operations advisory engagements.",
+  "technology-support": "This section includes samples of technology solutions, dashboards, and automation tools built to support business operations.",
 };
 
 function ProjectCard({ project }: { project: SampleProject }) {
@@ -127,7 +131,7 @@ function PlaceholderCard() {
       </CardHeader>
       <CardContent className="flex-1 flex flex-col">
         <CardDescription className="text-muted-foreground/70 leading-relaxed flex-1 mb-4">
-          Additional sample forecasts will be added here to demonstrate different forecasting scenarios and methodologies.
+          Sample work will be added here to demonstrate our approach and methodology.
         </CardDescription>
         <Button variant="outline" className="w-full gap-2" disabled>
           <ExternalLink className="w-4 h-4" />
@@ -139,28 +143,37 @@ function PlaceholderCard() {
 }
 
 export default function SampleWork() {
-  const [activeTab, setActiveTab] = useState<TabType>("business-models");
+  const [activeTab, setActiveTab] = useState<TabType>("process-reviews");
 
   const tabs: { id: TabType; label: string }[] = [
+    { id: "process-reviews", label: "Process Reviews" },
+    { id: "sops", label: "SOPs" },
     { id: "business-models", label: "Business Models" },
     { id: "pitch-decks", label: "Pitch Decks" },
-    { id: "financial-forecasts", label: "Financial Forecasts" },
-    { id: "process-reviews", label: "Process Reviews" },
-    { id: "sops-rcms", label: "SOPs & RCMs" },
+    { id: "financial-forecasting", label: "Financial Forecasting" },
+    { id: "strategy-optimization", label: "Strategy Optimization" },
+    { id: "advisory-support", label: "Advisory Support" },
+    { id: "technology-support", label: "Technology Support" },
   ];
 
   const getProjects = () => {
     switch (activeTab) {
+      case "process-reviews":
+        return processReviews;
+      case "sops":
+        return sops;
       case "business-models":
         return businessModels;
       case "pitch-decks":
         return pitchDecks;
-      case "financial-forecasts":
+      case "financial-forecasting":
         return financialForecasts;
-      case "process-reviews":
-        return processReviews;
-      case "sops-rcms":
-        return sopsRcms;
+      case "strategy-optimization":
+        return strategyOptimization;
+      case "advisory-support":
+        return advisorySupport;
+      case "technology-support":
+        return technologySupport;
     }
   };
 
@@ -171,7 +184,6 @@ export default function SampleWork() {
       <Header />
       
       <main className="pt-20">
-        {/* Hero Section */}
         <section className="py-16 md:py-24 bg-gradient-to-b from-secondary/30 to-background">
           <div className="container mx-auto px-6">
             <div className="max-w-4xl mx-auto text-center">
@@ -179,18 +191,16 @@ export default function SampleWork() {
                 Sample Work
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-                This section showcases internally developed sample work created to demonstrate approach, structure, and depth of analysis. The work is illustrative in nature and represents how different business problems are studied, structured, and translated into usable financial outputs.
+                This section showcases internally developed sample work created to demonstrate approach, structure, and depth of analysis. The work is illustrative in nature and represents how different business problems are studied, structured, and translated into usable outputs.
               </p>
             </div>
           </div>
         </section>
 
-        {/* Tabs Section */}
         <section className="py-12 md:py-16">
           <div className="container mx-auto px-6">
-            {/* Tab Buttons - Simplified with icons */}
             <div className="flex justify-center mb-10">
-              <div className="inline-flex bg-secondary/50 rounded-xl p-1.5 gap-1">
+              <div className="inline-flex flex-wrap justify-center bg-secondary/50 rounded-xl p-1.5 gap-1">
                 {tabs.map((tab) => (
                   <button
                     key={tab.id}
@@ -207,14 +217,12 @@ export default function SampleWork() {
               </div>
             </div>
 
-            {/* Tab Description */}
             <div className="max-w-3xl mx-auto text-center mb-12">
               <p className="text-muted-foreground leading-relaxed">
                 {tabDescriptions[activeTab]}
               </p>
             </div>
 
-            {/* Project Cards */}
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
               {projects.length > 0 ? (
                 projects.map((project, index) => (
@@ -228,7 +236,6 @@ export default function SampleWork() {
                 </>
               )}
             </div>
-            {/* Disclaimer */}
             <div className="mt-12 text-center">
               <p className="text-sm text-muted-foreground italic">
                 All samples are anonymised and shared for illustrative purposes only.

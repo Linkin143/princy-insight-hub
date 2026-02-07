@@ -1,6 +1,6 @@
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
-import { Award, ClipboardCheck, Eye, FileText, Linkedin, Mail, Phone, Sparkles, Target, Users, Zap } from "lucide-react";
+import { Award, ClipboardCheck, Eye, FileText, Layers, Linkedin, Mail, Phone, Sparkles, Target, TrendingUp, Users, Zap, Compass } from "lucide-react";
 import FounderProfile from "../../attachments/Profile Photo/Founder_Pic.jpeg";
 
 const industries = [
@@ -13,9 +13,12 @@ const industries = [
   "D2C Brands",
   "Furniture",
   "EdTech",
+  "E-waste Recycling",
+  "Logistics",
+  "Real Estate",
 ];
 
-const coreExpertise = [
+const whatWeDo = [
   {
     icon: ClipboardCheck,
     title: "Process Reviews",
@@ -23,19 +26,45 @@ const coreExpertise = [
   },
   {
     icon: FileText,
-    title: "SOPs & RCMs",
-    description: "Structured documentation and risk control frameworks for consistent operations.",
+    title: "SOPs",
+    description: "Structured Standard Operating Procedures for consistent operations and compliance readiness.",
+  },
+  {
+    icon: Layers,
+    title: "Business Models",
+    description: "Business model structuring and analysis for commercial clarity and strategic direction.",
   },
   {
     icon: Target,
-    title: "Strategic Advisory",
-    description: "Vision-led guidance for business growth, investor readiness, and market positioning.",
+    title: "Pitch Decks",
+    description: "Investor-grade pitch decks for clear, credible, and persuasive business positioning.",
+  },
+  {
+    icon: TrendingUp,
+    title: "Financial Forecasting",
+    description: "Structured financial forecasting for disciplined cash management and performance tracking.",
+  },
+  {
+    icon: Compass,
+    title: "Strategy Optimization",
+    description: "Strategic planning and optimization to sharpen business direction and competitive positioning.",
+  },
+  {
+    icon: Users,
+    title: "Advisory Support",
+    description: "Ongoing advisory providing structured judgement across business, finance, and operations.",
   },
   {
     icon: Zap,
-    title: "Implementation Focus",
-    description: "Not just strategy — we ensure actionable frameworks that drive real results.",
+    title: "Technology Support",
+    description: "Technology and automation support for reliable execution and operational efficiency.",
   },
+];
+
+const additionalCapabilities = [
+  "Investor Readiness",
+  "Business Structuring",
+  "Strategy Optimization",
 ];
 
 export default function About() {
@@ -67,14 +96,14 @@ export default function About() {
                 What We Do
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                We help businesses build clarity, structure, and systems that scale — from process optimization 
+                We help businesses build clarity, structure, and systems that scale, from process optimization 
                 to investor-ready documentation and strategic advisory.
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {coreExpertise.map((item, index) => (
-                <div key={index} className="bg-secondary/30 rounded-2xl p-6 border border-border hover:shadow-card transition-shadow">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+              {whatWeDo.map((item, index) => (
+                <div key={index} className="bg-secondary/30 rounded-2xl p-6 border border-border hover:shadow-card transition-shadow h-full">
                   <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
                     <item.icon className="w-6 h-6 text-primary" />
                   </div>
@@ -82,6 +111,21 @@ export default function About() {
                   <p className="text-muted-foreground text-sm">{item.description}</p>
                 </div>
               ))}
+            </div>
+
+            {/* Additional Capabilities */}
+            <div className="mt-8 text-center">
+              <p className="text-muted-foreground mb-4">We also specialise in:</p>
+              <div className="flex flex-wrap justify-center gap-3">
+                {additionalCapabilities.map((cap, index) => (
+                  <span 
+                    key={index}
+                    className="px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-sm font-medium text-foreground"
+                  >
+                    {cap}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         </section>
@@ -114,7 +158,6 @@ export default function About() {
         <section className="container mx-auto px-6 mb-20">
           <div className="max-w-6xl mx-auto">
             <div className="flex flex-col items-center text-center">
-              {/* Circular Photo Frame */}
               <div className="w-64 h-64 md:w-80 md:h-80 rounded-full bg-secondary/50 border-4 border-primary/20 overflow-hidden shadow-xl mb-8">
                 <img 
                   src={FounderProfile} 
@@ -123,7 +166,6 @@ export default function About() {
                 />
               </div>
               
-              {/* Title */}
               <h2 className="font-display text-3xl md:text-4xl font-semibold text-foreground mb-2">
                 Founder
               </h2>
@@ -131,7 +173,6 @@ export default function About() {
                 Princy Shah
               </p>
               
-              {/* Description */}
               <div className="max-w-2xl">
                 <p className="text-muted-foreground text-lg mb-6 leading-relaxed">
                   I founded Princy Shah Consulting to bring clarity and innovation to 
@@ -156,7 +197,7 @@ export default function About() {
                   Our Philosophy
                 </h2>
                 <p className="text-muted-foreground text-lg mb-6 leading-relaxed">
-                  We believe that true consulting goes beyond delivering reports—it's about 
+                  We believe that true consulting goes beyond delivering reports. It is about 
                   becoming a trusted partner invested in your success. Every engagement 
                   is approached with research-led analysis and insightful vision.
                 </p>
@@ -186,7 +227,7 @@ export default function About() {
                     <div>
                       <h3 className="font-semibold text-foreground mb-2">Mission</h3>
                       <p className="text-muted-foreground text-sm">
-                        Your business, my detailing — turning raw ideas into sharp systems that work.
+                        Your business, my detailing. Turning raw ideas into sharp systems that work.
                       </p>
                     </div>
                   </div>

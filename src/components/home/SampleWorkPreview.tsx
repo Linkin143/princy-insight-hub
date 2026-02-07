@@ -1,30 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, ClipboardCheck, FileText, PresentationIcon, ScrollText, TrendingUp } from "lucide-react";
+import { ArrowRight, ClipboardCheck, FileText, Presentation, TrendingUp, Compass, Users, Cpu, Layers } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const sampleWorkCategories = [
-  {
-    icon: FileText,
-    title: "Business Models",
-    description: "Comprehensive business model frameworks for startups and enterprises",
-    samples: ["Casa Edge", "Audit IQ", "Ecotrax"],
-    tab: "business-models"
-  },
-  {
-    icon: PresentationIcon,
-    title: "Pitch Decks",
-    description: "Investor-ready pitch decks that tell compelling stories",
-    samples: ["Fund Bridge", "Coinnect", "Mindsync"],
-    tab: "pitch-decks"
-  },
-  {
-    icon: TrendingUp,
-    title: "Financial Forecasts",
-    description: "Detailed financial projections and analysis models",
-    samples: ["Aglovert", "Botanica", "Aurevia MedTech"],
-    tab: "financial-forecasts"
-  },
   {
     icon: ClipboardCheck,
     title: "Process Reviews",
@@ -33,11 +12,53 @@ const sampleWorkCategories = [
     tab: "process-reviews"
   },
   {
-    icon: ScrollText,
-    title: "SOPs & RCMs",
-    description: "Standard Operating Procedures and Risk Control Matrices",
+    icon: FileText,
+    title: "SOPs",
+    description: "Standard Operating Procedures for consistent operations",
     samples: ["Coming Soon"],
-    tab: "sops-rcms"
+    tab: "sops"
+  },
+  {
+    icon: Layers,
+    title: "Business Models",
+    description: "Comprehensive business model frameworks for startups and enterprises",
+    samples: ["Casa Edge", "Audit IQ", "Ecotrax"],
+    tab: "business-models"
+  },
+  {
+    icon: Presentation,
+    title: "Pitch Decks",
+    description: "Investor-ready pitch decks that tell compelling stories",
+    samples: ["Fund Bridge", "Coinnect", "Mindsync"],
+    tab: "pitch-decks"
+  },
+  {
+    icon: TrendingUp,
+    title: "Financial Forecasting",
+    description: "Detailed financial projections and analysis models",
+    samples: ["Aglovert", "Botanica", "Aurevia MedTech"],
+    tab: "financial-forecasting"
+  },
+  {
+    icon: Compass,
+    title: "Strategy Optimization",
+    description: "Strategic planning and optimization frameworks",
+    samples: ["Coming Soon"],
+    tab: "strategy-optimization"
+  },
+  {
+    icon: Users,
+    title: "Advisory Support",
+    description: "Advisory deliverables across business and finance",
+    samples: ["Coming Soon"],
+    tab: "advisory-support"
+  },
+  {
+    icon: Cpu,
+    title: "Technology Support",
+    description: "Technology solutions, dashboards, and automation tools",
+    samples: ["Coming Soon"],
+    tab: "technology-support"
   }
 ];
 
@@ -54,34 +75,39 @@ export function SampleWorkPreview() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto mb-10">
           {sampleWorkCategories.map((category) => {
             const IconComponent = category.icon;
             return (
-              <Card 
-                key={category.title} 
-                className="bg-card border-border hover:shadow-card hover:border-primary/20 transition-all duration-300"
+              <Link
+                key={category.title}
+                to={`/sample-work`}
+                className="block"
               >
-                <CardContent className="p-6">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="p-2 rounded-lg bg-primary/10">
-                      <IconComponent className="w-5 h-5 text-primary" />
-                    </div>
-                    <h3 className="font-semibold text-foreground">{category.title}</h3>
-                  </div>
-                  <p className="text-sm text-muted-foreground mb-4">
-                    {category.description}
-                  </p>
-                  <div className="space-y-1">
-                    {category.samples.map((sample) => (
-                      <div key={sample} className="text-sm text-foreground/80 flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-primary/60"></span>
-                        {sample}
+                <Card 
+                  className="bg-card border-border hover:shadow-card hover:border-primary/20 transition-all duration-300 h-full cursor-pointer"
+                >
+                  <CardContent className="p-6">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="p-2 rounded-lg bg-primary/10">
+                        <IconComponent className="w-5 h-5 text-primary" />
                       </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
+                      <h3 className="font-semibold text-foreground">{category.title}</h3>
+                    </div>
+                    <p className="text-sm text-muted-foreground mb-4">
+                      {category.description}
+                    </p>
+                    <div className="space-y-1">
+                      {category.samples.map((sample) => (
+                        <div key={sample} className="text-sm text-foreground/80 flex items-center gap-2">
+                          <span className="w-1.5 h-1.5 rounded-full bg-primary/60"></span>
+                          {sample}
+                        </div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
             );
           })}
         </div>

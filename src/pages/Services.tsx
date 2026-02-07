@@ -3,6 +3,8 @@ import { Footer } from "@/components/layout/Footer";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { 
+  ClipboardCheck,
+  FileText,
   Layers, 
   TrendingUp,
   Presentation, 
@@ -10,12 +12,63 @@ import {
   Users,
   ArrowRight,
   ChevronDown,
-  ChevronRight
+  ChevronRight,
+  Compass
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 
 const services = [
+  {
+    icon: ClipboardCheck,
+    title: "Process Reviews",
+    shortDescription: "Comprehensive analysis and improvement of business processes for operational excellence, efficiency, and consistency.",
+    sections: [
+      {
+        heading: "Process Analysis & Documentation",
+        bullets: [
+          "Current state process mapping",
+          "Process gap identification",
+          "Workflow efficiency assessment",
+          "Bottleneck and redundancy analysis"
+        ]
+      },
+      {
+        heading: "Process Improvement",
+        bullets: [
+          "Process redesign and optimisation",
+          "Standardisation frameworks",
+          "Performance metrics and benchmarks",
+          "Implementation planning"
+        ]
+      }
+    ]
+  },
+  {
+    icon: FileText,
+    title: "SOPs",
+    shortDescription: "Structured Standard Operating Procedures for consistent operations, compliance readiness, and scalable execution.",
+    sections: [
+      {
+        heading: "SOP Development",
+        bullets: [
+          "End-to-end SOP documentation",
+          "Role-based procedure mapping",
+          "Compliance-ready frameworks",
+          "Version control and maintenance protocols"
+        ]
+      },
+      {
+        heading: "Operational Guidelines",
+        bullets: [
+          "Process control documentation",
+          "Quality assurance procedures",
+          "Escalation and exception handling",
+          "Training and onboarding documentation"
+        ]
+      }
+    ]
+  },
   {
     icon: Layers,
     title: "Business Models",
@@ -88,48 +141,6 @@ const services = [
     ]
   },
   {
-    icon: TrendingUp,
-    title: "Financial Forecasts",
-    shortDescription: "Structured financial forecasting and planning for disciplined cash management, capital allocation, and performance tracking.",
-    sections: [
-      {
-        heading: "Financial Projections",
-        bullets: [
-          "Profit and Loss projections",
-          "Cash Flow projections",
-          "Balance Sheet projections",
-          "Three to five year integrated forecasts"
-        ]
-      },
-      {
-        heading: "Budgeting & Capital Planning",
-        bullets: [
-          "Annual and operating budgets",
-          "Cash runway and burn analysis",
-          "Fund utilisation planning",
-          "Capital requirement assessment"
-        ]
-      },
-      {
-        heading: "Scenario & Sensitivity",
-        bullets: [
-          "Scenario-based financial outcomes",
-          "Sensitivity to revenue, cost, and capital changes",
-          "Downside risk modelling"
-        ]
-      },
-      {
-        heading: "MIS & Performance Tracking",
-        bullets: [
-          "Management reporting structures",
-          "KPI frameworks",
-          "Periodic performance dashboards",
-          "Decision-support financial reporting"
-        ]
-      }
-    ]
-  },
-  {
     icon: Presentation,
     title: "Pitch Decks",
     shortDescription: "Investor-grade pitch decks to position the business clearly, credibly, and persuasively before investors and partners.",
@@ -140,7 +151,7 @@ const services = [
           "Pitch storyline and sequencing",
           "Founder vision articulation",
           "Strategic intent positioning",
-          "Problem–solution articulation",
+          "Problem-solution articulation",
           "Business overview structuring",
           "Long-term value creation narrative"
         ]
@@ -183,56 +194,68 @@ const services = [
     ]
   },
   {
-    icon: Cpu,
-    title: "Technology Support",
-    shortDescription: "Technology and automation support for reliable execution, reporting accuracy, and operational efficiency.",
+    icon: TrendingUp,
+    title: "Financial Forecasting",
+    shortDescription: "Structured financial forecasting and planning for disciplined cash management, capital allocation, and performance tracking.",
     sections: [
       {
-        heading: "Product & Platform Development",
+        heading: "Financial Projections",
         bullets: [
-          "Website development (static, dynamic, CMS, landing pages)",
-          "Web application development",
-          "Mobile application development (Android / iOS)",
-          "Backend system development",
-          "API integrations",
-          "Third-party tool integrations",
-          "Maintenance, upgrades, and issue resolution"
+          "Profit and Loss projections",
+          "Cash Flow projections",
+          "Balance Sheet projections",
+          "Three to five year integrated forecasts"
         ]
       },
       {
-        heading: "Automation & AI",
+        heading: "Budgeting & Capital Planning",
         bullets: [
-          "Workflow automation",
-          "Task and process automation",
-          "CRM automation",
-          "Lead and sales process automation",
-          "Finance and reporting automation",
-          "Chatbots for sales, support, and internal use",
-          "AI agents for internal workflows",
-          "Data pipelines and system integrations"
+          "Annual and operating budgets",
+          "Cash runway and burn analysis",
+          "Fund utilisation planning",
+          "Capital requirement assessment"
         ]
       },
       {
-        heading: "Dashboards & Internal Tools",
+        heading: "Scenario & Sensitivity",
         bullets: [
-          "Business dashboards",
-          "MIS and reporting dashboards",
-          "Finance dashboards",
-          "Sales and marketing dashboards",
-          "Operations dashboards",
-          "Custom internal tools for finance, sales, and operations",
-          "Data visualisation and reporting frameworks"
+          "Scenario-based financial outcomes",
+          "Sensitivity to revenue, cost, and capital changes",
+          "Downside risk modelling"
         ]
       },
       {
-        heading: "Testing & Reliability",
+        heading: "MIS & Performance Tracking",
         bullets: [
-          "End-to-end testing (web, mobile, desktop)",
-          "Functional testing",
-          "Performance and load testing",
-          "Integration testing",
-          "Basic security testing",
-          "Reliability and stability checks"
+          "Management reporting structures",
+          "KPI frameworks",
+          "Periodic performance dashboards",
+          "Decision-support financial reporting"
+        ]
+      }
+    ]
+  },
+  {
+    icon: Compass,
+    title: "Strategy Optimization",
+    shortDescription: "Strategic planning and optimization to sharpen business direction, competitive positioning, and growth execution.",
+    sections: [
+      {
+        heading: "Strategic Planning",
+        bullets: [
+          "Business strategy formulation",
+          "Market positioning and differentiation",
+          "Growth roadmap development",
+          "Competitive strategy analysis"
+        ]
+      },
+      {
+        heading: "Performance Optimization",
+        bullets: [
+          "Operational efficiency improvement",
+          "Resource allocation optimization",
+          "Revenue and margin enhancement",
+          "Scalability planning"
         ]
       }
     ]
@@ -298,6 +321,61 @@ const services = [
         ]
       }
     ]
+  },
+  {
+    icon: Cpu,
+    title: "Technology Support",
+    shortDescription: "Technology and automation support for reliable execution, reporting accuracy, and operational efficiency.",
+    sections: [
+      {
+        heading: "Product & Platform Development",
+        bullets: [
+          "Website development (static, dynamic, CMS, landing pages)",
+          "Web application development",
+          "Mobile application development (Android / iOS)",
+          "Backend system development",
+          "API integrations",
+          "Third-party tool integrations",
+          "Maintenance, upgrades, and issue resolution"
+        ]
+      },
+      {
+        heading: "Automation & AI",
+        bullets: [
+          "Workflow automation",
+          "Task and process automation",
+          "CRM automation",
+          "Lead and sales process automation",
+          "Finance and reporting automation",
+          "Chatbots for sales, support, and internal use",
+          "AI agents for internal workflows",
+          "Data pipelines and system integrations"
+        ]
+      },
+      {
+        heading: "Dashboards & Internal Tools",
+        bullets: [
+          "Business dashboards",
+          "MIS and reporting dashboards",
+          "Finance dashboards",
+          "Sales and marketing dashboards",
+          "Operations dashboards",
+          "Custom internal tools for finance, sales, and operations",
+          "Data visualisation and reporting frameworks"
+        ]
+      },
+      {
+        heading: "Testing & Reliability",
+        bullets: [
+          "End-to-end testing (web, mobile, desktop)",
+          "Functional testing",
+          "Performance and load testing",
+          "Integration testing",
+          "Basic security testing",
+          "Reliability and stability checks"
+        ]
+      }
+    ]
   }
 ];
 
@@ -329,7 +407,6 @@ function ServiceCard({ service, id }: { service: Service; id: string }) {
 
   return (
     <div id={id} className="bg-card border border-border rounded-2xl overflow-hidden hover:shadow-card hover:border-primary/20 transition-all duration-300 scroll-mt-32">
-      {/* Layer 1: Service Overview */}
       <div className="p-6">
         <div className="flex items-start gap-4">
           <div className="w-12 h-12 rounded-xl bg-teal-light flex items-center justify-center flex-shrink-0">
@@ -357,7 +434,6 @@ function ServiceCard({ service, id }: { service: Service; id: string }) {
         </button>
       </div>
       
-      {/* Layer 2: Content Heads (collapsed by default) */}
       <div className={cn(
         "overflow-hidden transition-all duration-300 border-t border-border",
         isDetailOpen ? "max-h-[2000px] opacity-100" : "max-h-0 opacity-0 border-t-0"
@@ -365,7 +441,6 @@ function ServiceCard({ service, id }: { service: Service; id: string }) {
         <div className="p-4 space-y-2 bg-secondary/20">
           {service.sections.map((section, index) => (
             <div key={index} className="bg-card border border-border/50 rounded-xl overflow-hidden">
-              {/* Content Head - Clickable */}
               <button
                 onClick={() => toggleHead(index)}
                 className="w-full flex items-center justify-between p-4 text-left hover:bg-secondary/50 transition-colors"
@@ -379,7 +454,6 @@ function ServiceCard({ service, id }: { service: Service; id: string }) {
                 )} />
               </button>
               
-              {/* Layer 3: Bullet Points (revealed on click) */}
               <div className={cn(
                 "overflow-hidden transition-all duration-200 bg-secondary/30",
                 expandedHeads.has(index) ? "max-h-[500px]" : "max-h-0"
@@ -402,11 +476,14 @@ function ServiceCard({ service, id }: { service: Service; id: string }) {
 }
 
 const serviceIds: Record<string, string> = {
+  "Process Reviews": "process-reviews",
+  "SOPs": "sops",
   "Business Models": "business-models",
-  "Financial Forecasts": "financial-forecasts",
   "Pitch Decks": "pitch-decks",
-  "Technology Support": "technology-support",
-  "Advisory Support": "advisory-support"
+  "Financial Forecasting": "financial-forecasting",
+  "Strategy Optimization": "strategy-optimization",
+  "Advisory Support": "advisory-support",
+  "Technology Support": "technology-support"
 };
 
 export default function Services() {
@@ -428,7 +505,6 @@ export default function Services() {
     <div className="min-h-screen">
       <Header />
       <main className="pt-32 pb-24">
-        {/* Hero */}
         <section className="container mx-auto px-6 mb-16">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground mb-6">
@@ -441,7 +517,6 @@ export default function Services() {
           </div>
         </section>
 
-        {/* Layer 1: Services Overview */}
         <section className="container mx-auto px-6">
           <div className="max-w-5xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -451,7 +526,6 @@ export default function Services() {
             </div>
           </div>
 
-          {/* CTA */}
           <div className="max-w-4xl mx-auto mt-16 text-center">
             <div className="bg-secondary/50 rounded-3xl p-10">
               <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-4">
