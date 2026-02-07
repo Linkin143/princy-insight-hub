@@ -60,7 +60,7 @@ export function HeroSection() {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8 animate-fade-in-up-delayed-2">
             <Button variant="hero" size="xl" asChild>
-              <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1234567890" target="_blank" rel="noopener noreferrer">
+              <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3TIs6dABcRR_Ak5DX5JihBbHWwk30odS8SF8O4GuOmFlxAP6qKvQt0W0dUyWj8-xz2ELAuoplh?gv=true" target="_blank" rel="noopener noreferrer">
                 Schedule a Call
               </a>
             </Button>
