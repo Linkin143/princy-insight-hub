@@ -11,7 +11,7 @@ const reasons = [
   },
   {
     title: "Customised, Not Template-Based",
-    description: "Every solution is fitted to your unique needs—no generic approaches.",
+    description: "Every solution is fitted to your unique needs, no generic approaches.",
   },
   {
     title: "Insight Driven Work",
@@ -23,7 +23,7 @@ const reasons = [
   },
   {
     title: "Structure & Strategy",
-    description: "Structure to facts and strategy to ideas—turning complexity into clarity.",
+    description: "Structure to facts and strategy to ideas, turning complexity into clarity.",
   },
 ];
 

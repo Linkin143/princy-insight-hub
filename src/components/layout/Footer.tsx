@@ -46,11 +46,14 @@ export function Footer() {
             <h4 className="font-display font-semibold text-lg mb-4">Services</h4>
             <ul className="space-y-3">
               {[
+                { name: "Process Reviews", id: "process-reviews" },
+                { name: "SOPs", id: "sops" },
                 { name: "Business Models", id: "business-models" },
-                { name: "Financial Forecasts", id: "financial-forecasts" },
                 { name: "Pitch Decks", id: "pitch-decks" },
-                { name: "Technology Support", id: "technology-support" },
-                { name: "Advisory Support", id: "advisory-support" }
+                { name: "Financial Forecasting", id: "financial-forecasting" },
+                { name: "Strategy Optimization", id: "strategy-optimization" },
+                { name: "Advisory Support", id: "advisory-support" },
+                { name: "Technology Support", id: "technology-support" }
               ].map((item) => (
                 <li key={item.name}>
                   <Link

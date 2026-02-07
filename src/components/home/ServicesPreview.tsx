@@ -1,11 +1,14 @@
 import { Button } from "@/components/ui/button";
 import { 
   ArrowRight, 
+  ClipboardCheck,
+  FileText,
   Layers, 
   TrendingUp,
   Presentation, 
   Cpu, 
   Users,
+  Compass,
   ChevronDown,
   ChevronRight
 } from "lucide-react";
@@ -14,6 +17,24 @@ import { useState } from "react";
 import { cn } from "@/lib/utils";
 
 const services = [
+  {
+    icon: ClipboardCheck,
+    title: "Process Reviews",
+    shortDescription: "Comprehensive analysis and improvement of business processes for operational excellence, efficiency, and consistency.",
+    sections: [
+      { heading: "Process Analysis & Documentation" },
+      { heading: "Process Improvement" },
+    ]
+  },
+  {
+    icon: FileText,
+    title: "SOPs",
+    shortDescription: "Structured Standard Operating Procedures for consistent operations, compliance readiness, and scalable execution.",
+    sections: [
+      { heading: "SOP Development" },
+      { heading: "Operational Guidelines" },
+    ]
+  },
   {
     icon: Layers,
     title: "Business Models",
@@ -24,17 +45,6 @@ const services = [
       { heading: "Customer & Market Economics" },
       { heading: "Comparative & Strategic Analysis" },
       { heading: "Scenario, Risk & Sustainability" },
-    ]
-  },
-  {
-    icon: TrendingUp,
-    title: "Financial Forecasts",
-    shortDescription: "Structured financial forecasting and planning for disciplined cash management, capital allocation, and performance tracking.",
-    sections: [
-      { heading: "Financial Projections" },
-      { heading: "Budgeting & Capital Planning" },
-      { heading: "Scenario & Sensitivity" },
-      { heading: "MIS & Performance Tracking" },
     ]
   },
   {
@@ -49,14 +59,23 @@ const services = [
     ]
   },
   {
-    icon: Cpu,
-    title: "Technology Support",
-    shortDescription: "Technology and automation support for reliable execution, reporting accuracy, and operational efficiency.",
+    icon: TrendingUp,
+    title: "Financial Forecasting",
+    shortDescription: "Structured financial forecasting and planning for disciplined cash management, capital allocation, and performance tracking.",
     sections: [
-      { heading: "Product & Platform Development" },
-      { heading: "Automation & AI" },
-      { heading: "Dashboards & Internal Tools" },
-      { heading: "Testing & Reliability" },
+      { heading: "Financial Projections" },
+      { heading: "Budgeting & Capital Planning" },
+      { heading: "Scenario & Sensitivity" },
+      { heading: "MIS & Performance Tracking" },
+    ]
+  },
+  {
+    icon: Compass,
+    title: "Strategy Optimization",
+    shortDescription: "Strategic planning and optimization to sharpen business direction, competitive positioning, and growth execution.",
+    sections: [
+      { heading: "Strategic Planning" },
+      { heading: "Performance Optimization" },
     ]
   },
   {
@@ -69,6 +88,17 @@ const services = [
       { heading: "Marketing Advisory" },
       { heading: "Model, Forecast & Performance Advisory" },
       { heading: "Ongoing Engagements" },
+    ]
+  },
+  {
+    icon: Cpu,
+    title: "Technology Support",
+    shortDescription: "Technology and automation support for reliable execution, reporting accuracy, and operational efficiency.",
+    sections: [
+      { heading: "Product & Platform Development" },
+      { heading: "Automation & AI" },
+      { heading: "Dashboards & Internal Tools" },
+      { heading: "Testing & Reliability" },
     ]
   },
 ];
@@ -90,7 +120,6 @@ function ServiceCard({ service }: { service: Service }) {
         {service.shortDescription}
       </p>
       
-      {/* Explore Scope Button */}
       <button
         onClick={() => setIsExpanded(!isExpanded)}
         className="flex items-center gap-2 text-primary text-sm font-medium hover:gap-3 transition-all"
@@ -102,7 +131,6 @@ function ServiceCard({ service }: { service: Service }) {
         )} />
       </button>
       
-      {/* Content Heads Preview */}
       <div className={cn(
         "overflow-hidden transition-all duration-300",
         isExpanded ? "max-h-96 mt-4 pt-4 border-t border-border" : "max-h-0"
@@ -124,7 +152,6 @@ export function ServicesPreview() {
   return (
     <section className="py-16 bg-background">
       <div className="container mx-auto px-6">
-        {/* Section Header */}
         <div className="max-w-2xl mx-auto text-center mb-12">
           <h2 className="font-display text-3xl md:text-4xl font-semibold text-foreground mb-6">
             Our Services
@@ -134,14 +161,12 @@ export function ServicesPreview() {
           </p>
         </div>
 
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto mb-12">
-          {services.map((service, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 max-w-7xl mx-auto mb-12">
+          {services.map((service) => (
             <ServiceCard key={service.title} service={service} />
           ))}
         </div>
 
-        {/* CTA */}
         <div className="text-center">
           <Button variant="hero" size="lg" asChild>
             <Link to="/services">
