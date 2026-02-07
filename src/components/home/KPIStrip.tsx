@@ -1,10 +1,10 @@
-import { Users, Briefcase, Handshake, Globe } from "lucide-react";
+import { Briefcase, Handshake, SquareCheckBig, Users } from "lucide-react";
 
 const stats = [
-  { icon: Users, value: "10+", label: "Clients Served" },
-  { icon: Briefcase, value: "5+", label: "Ongoing Projects" },
+  { icon: Users, value: "12+", label: "Clients Served" },
+  { icon: Briefcase, value: "7+", label: "Ongoing Projects" },
   { icon: Handshake, value: "10+", label: "Strategic Partners" },
-  { icon: Globe, value: "Multi-Industry", label: "Experience" },
+  { icon: SquareCheckBig, value: "22+", label: "Completed Projects" },
 ];
 
 export function KPIStrip() {
