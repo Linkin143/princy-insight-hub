@@ -1,22 +1,57 @@
+import { contactService } from "@/api/apiService";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { useForm } from "@/hooks/useForm";
 import { Linkedin, Mail, Phone } from "lucide-react";
+import { useEffect, useState } from "react";
 import { toast } from "sonner";
 
 export default function Contact() {
-  const handleSubmit = (e: React.FormEvent) => {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    company: "",
+    message: "",
+  });
+
+  const { handleSubmit: submitForm, loading, errors, success } = useForm(async (data) => {
+    await contactService.sendMessage(data);
+  });
+
+  useEffect(() => {
+    if (success) {
+      toast.success("Thank you for your message! We'll be in touch soon.");
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        company: "",
+        message: "",
+      });
+    }
+  }, [success]);
+
+  useEffect(() => {
+    if (errors) {
+      errors.forEach((err: any) => {
+        toast.error(err.message || "Something went wrong");
+      });
+    }
+  }, [errors]);
+
+  const onFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success("Thank you for your message! We'll be in touch soon.");
+    await submitForm(formData);
   };
 
   return (
     <div className="min-h-screen">
       <Header />
       <main className="pt-32 pb-24">
-        {/* Hero */}
         <section className="container mx-auto px-6 mb-16">
           <div className="max-w-4xl mx-auto text-center">
             <span className="text-primary font-medium text-sm tracking-wider uppercase mb-4 block">
@@ -32,41 +67,59 @@ export default function Contact() {
           </div>
         </section>
 
-        {/* Contact Form & Info */}
         <section className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-              {/* Contact Form */}
               <div className="bg-card border border-border rounded-3xl p-8 md:p-10">
                 <h2 className="font-display text-2xl font-semibold text-foreground mb-6">
                   Send Us a Message
                 </h2>
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={onFormSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm font-medium text-foreground mb-2">
                         First Name
                       </label>
-                      <Input placeholder="" required />
+                      <Input 
+                        placeholder="" 
+                        required 
+                        value={formData.firstName}
+                        onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
+                      />
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-foreground mb-2">
                         Last Name
                       </label>
-                      <Input placeholder="" required />
+                      <Input 
+                        placeholder="" 
+                        required 
+                        value={formData.lastName}
+                        onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
+                      />
                     </div>
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-2">
                       Email
                     </label>
-                    <Input type="email" placeholder="" required />
+                    <Input 
+                      type="email" 
+                      placeholder="" 
+                      required 
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-2">
                       Company
                     </label>
-                    <Input placeholder="" />
+                    <Input 
+                      placeholder="" 
+                      value={formData.company}
+                      onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                    />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-2">
@@ -76,15 +129,16 @@ export default function Contact() {
                       placeholder="Tell us about your project or inquiry..."
                       rows={5}
                       required
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     />
                   </div>
-                  <Button type="submit" variant="hero" size="lg" className="w-full">
-                    Send Message
+                  <Button type="submit" variant="hero" size="lg" className="w-full" disabled={loading}>
+                    {loading ? "Sending..." : "Send Message"}
                   </Button>
                 </form>
               </div>
 
-              {/* Contact Info */}
               <div className="space-y-8">
                 <div>
                   <h2 className="font-display text-2xl font-semibold text-foreground mb-6">
@@ -138,7 +192,6 @@ export default function Contact() {
                   </a>
                 </div>
 
-                {/* CTA Card */}
                 <div className="bg-teal-dark rounded-3xl p-8 mt-8">
                   <h3 className="font-display text-xl font-semibold text-primary-foreground mb-3">
                     Chat With Us on WhatsApp

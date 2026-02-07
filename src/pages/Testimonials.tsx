@@ -1,71 +1,40 @@
-import { Header } from "@/components/layout/Header";
+import { feedbackService } from "@/api/apiService";
 import { Footer } from "@/components/layout/Footer";
+import { Header } from "@/components/layout/Header";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Checkbox } from "@/components/ui/checkbox";
-import { MessageSquare, Quote, Send } from "lucide-react";
-import { useState, useEffect } from "react";
 import { useToast } from "@/hooks/use-toast";
+import { useForm } from "@/hooks/useForm";
+import { MessageSquare, Quote, Send } from "lucide-react";
+import { useEffect, useState } from "react";
 
-// Placeholder for approved testimonials - these will be populated after admin approval
-const approvedTestimonials: Array<{
-  name: string;
-  company: string;
+interface TestimonialData {
+  fullName: string;
+  companyName: string;
   industry: string;
   feedback: string;
-}> = [];
+  consent: boolean;
+}
 
 export default function Testimonials() {
-  const [formData, setFormData] = useState({
+  const [approvedTestimonials, setApprovedTestimonials] = useState<TestimonialData[]>([]);
+  const [formData, setFormData] = useState<TestimonialData>({
     fullName: "",
     companyName: "",
     industry: "",
     feedback: "",
     consent: false,
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const { toast } = useToast();
 
-  // Scroll to submit section if hash is present
-  useEffect(() => {
-    if (window.location.hash === "#submit") {
-      const element = document.getElementById("submit");
-      if (element) {
-        setTimeout(() => {
-          element.scrollIntoView({ behavior: "smooth" });
-        }, 100);
-      }
-    }
-  }, []);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    if (!formData.fullName.trim() || !formData.companyName.trim() || !formData.feedback.trim()) {
-      toast({
-        title: "Required fields missing",
-        description: "Please fill in all required fields.",
-        variant: "destructive",
-      });
-      return;
-    }
-
-    if (!formData.consent) {
-      toast({
-        title: "Consent required",
-        description: "Please agree to display your testimonial on our website.",
-        variant: "destructive",
-      });
-      return;
-    }
-
-    setIsSubmitting(true);
-    
-    // For now, just show success - in production, this would send to an API/email
-    setTimeout(() => {
+  const { handleSubmit: submitForm, loading: isSubmitting, errors } = useForm(async (data: TestimonialData) => {
+    const response = await feedbackService.submitFeedback(data);
+    if (response.data.success) {
       toast({
         title: "Thank you!",
         description: "Your testimonial has been submitted for review. We'll be in touch soon.",
@@ -77,15 +46,62 @@ export default function Testimonials() {
         feedback: "",
         consent: false,
       });
-      setIsSubmitting(false);
-    }, 1000);
+      fetchData();
+    }
+  });
+
+  const fetchData = async () => {
+    try {
+      const response = await feedbackService.getFeedbacks();
+      if (response.data.success) {
+        setApprovedTestimonials(response.data.data);
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+    if (window.location.hash === "#submit") {
+      const element = document.getElementById("submit");
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: "smooth" });
+        }, 100);
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    if (errors) {
+      errors.forEach((err: any) => {
+        toast({
+          title: "Validation Error",
+          description: err.message,
+          variant: "destructive",
+        });
+      });
+    }
+  }, [errors, toast]);
+
+  const onFormSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formData.consent) {
+      toast({
+        title: "Consent required",
+        description: "Please agree to display your testimonial on our website.",
+        variant: "destructive",
+      });
+      return;
+    }
+    await submitForm(formData);
   };
 
   return (
     <div className="min-h-screen">
       <Header />
       <main className="pt-32 pb-24">
-        {/* Hero */}
         <section className="container mx-auto px-6 mb-16">
           <div className="max-w-4xl mx-auto text-center">
             <span className="text-primary font-medium text-sm tracking-wider uppercase mb-4 block">
@@ -101,7 +117,6 @@ export default function Testimonials() {
           </div>
         </section>
 
-        {/* Testimonials Grid */}
         {approvedTestimonials.length > 0 ? (
           <section className="container mx-auto px-6 mb-20">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
@@ -113,8 +128,8 @@ export default function Testimonials() {
                       "{testimonial.feedback}"
                     </p>
                     <div className="border-t border-border pt-4">
-                      <p className="font-semibold text-foreground">{testimonial.name}</p>
-                      <p className="text-sm text-muted-foreground">{testimonial.company}</p>
+                      <p className="font-semibold text-foreground">{testimonial.fullName}</p>
+                      <p className="text-sm text-muted-foreground">{testimonial.companyName}</p>
                       <p className="text-xs text-primary">{testimonial.industry}</p>
                     </div>
                   </CardContent>
@@ -142,7 +157,6 @@ export default function Testimonials() {
           </section>
         )}
 
-        {/* Submit Testimonial Form */}
         <section id="submit" className="container mx-auto px-6">
           <div className="max-w-2xl mx-auto">
             <Card className="bg-card border-border">
@@ -155,7 +169,7 @@ export default function Testimonials() {
                 </p>
               </CardHeader>
               <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={onFormSubmit} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="fullName">Full Name *</Label>
