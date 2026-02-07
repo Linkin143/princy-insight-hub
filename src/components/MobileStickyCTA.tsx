@@ -1,5 +1,5 @@
-import { Calendar, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Calendar, MessageCircle } from "lucide-react";
 
 export function MobileStickyCTA() {
   const whatsappNumber = "919284261593";
